@@ -1,71 +1,35 @@
 {
-  "name": "solid-dirnav-ui",
-  "version": "1.0.0",
-  "description": "A comprehensive directory navigation UI component built with SolidJS, featuring keyboard shortcuts, command palette, and shadow DOM isolation",
-  "main": "dist/solid-dirnav-ui.umd.js",
-  "module": "dist/solid-dirnav-ui.es.js",
-  "types": "dist/index.d.ts",
+  "name": "dirnav",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "SolidJS directory navigation UI component",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/solid-dirnav-ui.es.js",
-      "require": "./dist/solid-dirnav-ui.umd.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/username/solid-dirnav-ui.git"
-  },
-  "homepage": "https://github.com/username/solid-dirnav-ui#readme",
-  "bugs": {
-    "url": "https://github.com/username/solid-dirnav-ui/issues"
-  },
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "npm run clean && vite build && npm run build:types",
-    "build:lib": "vite build",
-    "build:types": "node -e \"require('fs').copyFileSync('src/types-template.d.ts', 'dist/index.d.ts')\"",
-    "clean": "rimraf dist",
-    "dev": "vite",
-    "prepublishOnly": "npm run build",
-    "prepack": "npm run build",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:debug": "playwright test --debug"
-  },
-  "keywords": [
-    "solidjs",
-    "navigation",
-    "ui-component",
-    "directory",
-    "keyboard-shortcuts",
-    "command-palette",
-    "shadow-dom",
-    "typescript"
-  ],
-  "author": "DirNav Contributors",
-  "license": "ISC",
-  "type": "module",
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
-  "devDependencies": {
-    "@playwright/test": "^1.53.2",
-    "playwright": "^1.53.2",
-    "rimraf": "^6.0.1",
-    "solid-js": "^1.9.7",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vite-plugin-solid": "^2.11.7"
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "dev": "vite build --watch"
   },
   "peerDependencies": {
-    "solid-js": "^1.9.0"
+    "solid-js": "^1.8.0",
+    "solid-transition-group": "^0.3.0"
+  },
+  "devDependencies": {
+    "solid-js": "^1.9.7",
+    "solid-transition-group": "^0.3.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-solid": "^2.11.7"
   }
 }

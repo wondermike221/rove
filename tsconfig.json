@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "types": ["@playwright/test"],
-    "noEmit": true,
-    "isolatedModules": true,
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", "playwright.config.ts"]
+  "include": ["src"]
 }
