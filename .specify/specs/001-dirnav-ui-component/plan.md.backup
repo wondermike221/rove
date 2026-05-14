@@ -1,0 +1,145 @@
+# Implementation Plan: DirNav UI Component
+
+- **Feature Branch**: main
+- **Created**: 2026-05-13
+- **Spec**: [spec.md](./spec.md)
+- **Status**: Implemented
+
+---
+
+## Summary
+
+DirNav is an OS-like floating window directory navigator built as a SolidJS + TypeScript component, distributable as an npm package. It embeds via shadow DOM for style isolation, supports four node types, and provides both mouse and full-keyboard control. Derived from FR-001 through FR-011 in [spec.md](./spec.md).
+
+---
+
+## Technical Context
+
+| Dimension | Detail |
+|-----------|--------|
+| Language | TypeScript |
+| Framework | SolidJS (reactive signals, no virtual DOM) |
+| Build | Vite |
+| Testing | Playwright (component + e2e) |
+| Storage | `localStorage` (window position, theme, input values) |
+| Distribution | npm package (`github:mhixon/DirNav`) |
+| Target platform | Browser (userscripts, web apps) |
+| Style isolation | Shadow DOM — mandatory, no external CSS dependencies |
+| Performance goals | Search debounced; fuzzy results memoized; lazy virtual-dir loading |
+| Constraints | Max 23 items per directory enforced at init; ES2020+ browsers only |
+
+---
+
+## Constitution Check
+
+Pre-implementation gates (verify before story work begins):
+
+- [x] No style leakage between component and host page (shadow DOM enforced).
+- [x] localStorage failures are caught and fall back to defaults.
+- [x] All keyboard shortcuts are cleaned up on unmount.
+- [x] Virtual directory async operations are cancelled/ignored on unmount.
+- [x] Tree validation runs before any render, throwing on violations.
+
+---
+
+## Architecture
+
+### Component Hierarchy
+
+```
+DirnavUI (root — manages all state, keyboard listeners)
+├── Window (draggable/resizable shell)
+│   └── TitleBar (back ← / command-palette > | directory name | □ X)
+├── NavigationView (breadcrumbs + paginated item list)
+└── CommandPalette (fuzzy search input + result list)
+```
+
+### State Model
+
+| State slice | Managed by | Persisted |
+|-------------|-----------|-----------|
+| `NavigationState` (path, directory, page, totalPages) | `DirnavUI` | No |
+| `WindowState` (x, y, width, height, visible, focused) | `DirnavUI` | Yes — position + size |
+| `CommandPaletteState` (active, searchTerm, results, selectedIndex) | `DirnavUI` | No |
+| Theme (light / dark / system) | `DirnavUI` | Yes |
+| Input values (per-key) | `DirnavUI` | Yes |
+
+### Data Flow
+
+1. **Init** — caller passes `DirectoryNode` tree; validator runs; shadow DOM attaches to `document.body`.
+2. **Navigation** — user interaction triggers signal updates → `NavigationView` reacts → breadcrumbs + item list re-render.
+3. **Keyboard** — global `keydown` listener on `document` handles all shortcuts; removed on cleanup.
+4. **Persistence** — `createEffect` writes window state + theme + input values to `localStorage` on change; read once on mount.
+5. **Command Palette** — activated by `>` button or `` ` `` key; fuzzy search runs over all leaf nodes on each keystroke (debounced).
+
+### Keyboard Shortcut Map
+
+| Key | Context | Action |
+|-----|---------|--------|
+| Ctrl+` | Global | Toggle show/hide/focus |
+| 1–9 | Focused | Select item or change page |
+| Backspace | Focused | Navigate up |
+| Esc | Focused | Hide window (or clear search) |
+| `` ` `` | Focused at root | Open command palette |
+| Arrow Up/Down | Command palette | Move selection |
+| Enter | Command palette | Activate selected item |
+
+### Node Type Dispatch
+
+| `type` | On select |
+|--------|-----------|
+| `directory` | Push to path, load children |
+| `action` | Call `callback()` |
+| `input` | Focus inline input; Enter → save to localStorage; Esc → cancel |
+| `virtual` | Call async `action()`, show loader, render returned `DirectoryNode` |
+
+### Pagination Strategy
+
+- Max 9 items/page → aligns with 1–9 keyboard shortcuts.
+- Max 3 pages (23 items total) — enforced at init.
+- Item 1 = previous page (pages 2, 3); Item 9 = next page (pages 1, 2).
+- Pagination dots indicate current page.
+
+### Fuzzy Search
+
+- Searches all leaf nodes (action, input, virtual) across entire tree.
+- Relevance scored by match position and character coverage.
+- Results sorted descending by score.
+- Search input debounced to avoid excessive filtering on rapid typing.
+
+---
+
+## Project Structure
+
+### Documentation (`.specify/specs/001-dirnav-ui-component/`)
+
+```
+spec.md          ← requirements and user stories (this spec)
+plan.md          ← this file
+tasks.md         ← phased task breakdown
+```
+
+### Source Layout
+
+```
+src/
+├── index.ts              ← public API / mount entry point
+├── components/
+│   ├── DirnavUI.tsx      ← root component, all state
+│   ├── Window.tsx        ← draggable + resizable shell
+│   ├── TitleBar.tsx      ← dynamic back/palette button + title + controls
+│   ├── NavigationView.tsx← breadcrumbs + paginated list
+│   └── CommandPalette.tsx← fuzzy search UI
+├── models/
+│   └── types.ts          ← DirectoryNode, DirectoryItem, state interfaces
+├── utils/
+│   ├── validation.ts     ← tree validator (throws on violations)
+│   ├── fuzzy.ts          ← fuzzy search + scoring
+│   └── storage.ts        ← localStorage helpers with error fallback
+└── styles/
+    └── component.css     ← self-contained; CSS custom props for theming
+tests/
+└── (Playwright test files)
+dist/
+└── (built output — included in repo for direct npm install)
+```

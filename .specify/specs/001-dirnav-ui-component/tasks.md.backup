@@ -1,0 +1,150 @@
+# Task List: DirNav UI Component
+
+- **Spec**: [spec.md](./spec.md)
+- **Plan**: [plan.md](./plan.md)
+- **Status**: Mostly implemented — remaining open items noted below.
+
+> `[P]` = can run in parallel (no shared file dependency)
+> Story tags: `[US1]`–`[US8]` map to spec.md user stories.
+
+---
+
+## Phase 1 – Setup ✅
+
+- [x] T001 [P] Initialize SolidJS + TypeScript project with Vite build
+- [x] T002 [P] Configure npm package (`package.json`, `main`, `exports` fields)
+- [x] T003 [P] Add Playwright as test runner; create base test configuration
+- [x] T004 [P] Define `DirectoryNode`, `DirectoryItem`, and state interfaces in `src/models/types.ts`
+
+**Checkpoint**: Project builds; types compile; Playwright runs (even with no tests yet).
+
+---
+
+## Phase 2 – Foundational ✅
+
+⚠️ CRITICAL: All story phases depend on this foundation.
+
+- [x] T005 [P] [US8] Implement tree validator in `src/utils/validation.ts` — enforce 23-item limit, throw on invalid node types
+- [x] T006 [P] [US8] Implement localStorage helpers in `src/utils/storage.ts` — read/write with error fallback to defaults
+- [x] T007 [P] [US8] Create shadow DOM mount entry point in `src/index.ts` — append to `document.body`
+- [x] T008 [P] [US8] Write Playwright contract tests for validator (valid tree, 24-item throw, invalid type throw)
+
+**Checkpoint**: `import DirNav from 'dirnav'; DirNav(tree)` mounts a shadow DOM node on the page; validator correctly rejects bad trees.
+
+---
+
+## Phase 3 – US1: Floating Window ✅
+
+**Goal**: Draggable, resizable window with persistent position/size.
+**Independent Test**: Drag → move → resize → close → reopen → position/size restored.
+
+- [x] T009 [P] [US1] Create `Window.tsx` — title bar drag handler using pointer events; CSS transforms for smooth movement
+- [x] T010 [P] [US1] Add resize handle (bottom-right corner) to `Window.tsx`
+- [x] T011 [P] [US1] Wire `WindowState` signals in `DirnavUI.tsx`; default to 25vw × 25vh centered
+- [x] T012 [P] [US1] Add close (X) and resize-to-default (□) buttons to title bar
+- [x] T013 [P] [US1] Persist window position + size to localStorage via `createEffect`; restore on mount
+- [x] T014 [P] [US1] Write Playwright tests: drag, resize, close/reopen persistence, reset-to-default
+
+**Checkpoint**: Window is independently usable; position/size round-trips through localStorage.
+
+---
+
+## Phase 4 – US2 + US3: Navigation Controls & Directory Display ✅
+
+**Goal**: Title bar dynamic controls + breadcrumbs + paginated item list.
+**Independent Test**: Navigate deep → truncated breadcrumbs appear → click breadcrumb → jump to level → 10-item dir → pagination dots appear.
+
+- [x] T015 [P] [US2] Create `TitleBar.tsx` — show back (←) when not at root, show (>) at root; centered directory name
+- [x] T016 [P] [US2] Wire back button to navigate up one level in `DirnavUI.tsx`
+- [x] T017 [P] [US3] Create `NavigationView.tsx` — render numbered item list (1–9 per page)
+- [x] T018 [P] [US3] Implement breadcrumb bar — full path ≤4 levels, `... > parent > current` beyond
+- [x] T019 [P] [US3] Implement pagination — max 3 pages; item 1 = prev page; item 9 = next page; dots indicator
+- [x] T020 [P] [US2] [US3] Write Playwright tests: back button visibility, breadcrumb truncation, pagination
+
+**Checkpoint**: Directory tree navigable by mouse only; breadcrumbs and pagination work correctly.
+
+---
+
+## Phase 5 – US4: Keyboard Shortcuts ✅
+
+**Goal**: Full keyboard control with global event listener.
+**Independent Test**: Ctrl+` toggle → 1–9 select → Backspace back → Esc hide → `` ` `` command palette.
+
+- [x] T021 [US4] Attach global `keydown` listener on `document` in `DirnavUI.tsx`; remove on cleanup
+- [x] T022 [P] [US4] Implement Ctrl+` toggle (show / hide / focus) with focus-state tracking
+- [x] T023 [P] [US4] Implement 1–9 item selection (also handles page-turn at boundaries)
+- [x] T024 [P] [US4] Implement Backspace (navigate up) and Esc (hide) handlers
+- [x] T025 [P] [US4] Implement `` ` `` key to open command palette when at root and focused
+- [x] T026 [P] [US4] Write Playwright tests for each keyboard shortcut and edge cases (no items, at root, etc.)
+
+**Checkpoint**: Entire component operable with keyboard only; no mouse needed after Ctrl+` shows window.
+
+---
+
+## Phase 6 – US5: Command Palette & Fuzzy Search ✅
+
+**Goal**: Fuzzy search across all leaf nodes with keyboard navigation.
+**Independent Test**: Open palette → type partial name → sorted results → Arrow keys move selection → Enter activates → resets to root → Esc behavior correct.
+
+- [x] T027 [US5] Create `CommandPalette.tsx` — search input + scrollable result list with selection highlight
+- [x] T028 [P] [US5] Implement fuzzy search + relevance scoring in `src/utils/fuzzy.ts`
+- [x] T029 [P] [US5] Wire fuzzy search to command palette: debounced on input change, sorted results
+- [x] T030 [P] [US5] Implement Arrow Up/Down result navigation; Enter activates + resets to root
+- [x] T031 [P] [US5] Implement Esc: non-empty → clear search; empty → exit palette + hide window
+- [x] T032 [P] [US5] Write Playwright tests: partial match, result order, keyboard nav, Esc behavior
+
+**Checkpoint**: Command palette independently testable — activates items and resets state correctly.
+
+---
+
+## Phase 7 – US6: Node Type Handlers ✅
+
+**Goal**: Four node types each dispatch correctly.
+**Independent Test**: All four node types in one tree → each behaves per spec.
+
+- [x] T033 [P] [US6] Implement directory node selection → push path and render children
+- [x] T034 [P] [US6] Implement action node → call `callback()` on selection
+- [x] T035 [P] [US6] Implement input node → inline edit, Enter saves to localStorage, Esc cancels
+- [x] T036 [P] [US6] Implement virtual directory node → call async `action()`, show loader, render result
+- [x] T037 [P] [US6] Add virtual directory error handling — display error, maintain previous state
+- [x] T038 [P] [US6] Write Playwright tests for all four node types including virtual error scenario
+
+**Checkpoint**: Mixed node tree navigable; all four types behave per spec acceptance scenarios.
+
+---
+
+## Phase 8 – US7: Theme and Meta Settings ✅
+
+**Goal**: Light/Dark/System theme switchable via command palette only, persisted.
+**Independent Test**: Open palette → select theme → applies immediately → reload → theme restored.
+
+- [x] T039 [P] [US7] Add theme signal to `DirnavUI.tsx`; wire CSS custom properties to shadow DOM root
+- [x] T040 [P] [US7] Implement System theme detection via `prefers-color-scheme` media query
+- [x] T041 [P] [US7] Inject theme meta-items into command palette results (not in main nav tree)
+- [x] T042 [P] [US7] Persist selected theme to localStorage; restore on mount
+- [x] T043 [P] [US7] Write Playwright tests: theme switch applies immediately, persists across reload
+
+**Checkpoint**: Theme options appear in command palette only; selection persists and applies in real time.
+
+---
+
+## Phase 9 – Polish ✅
+
+- [x] T044 [P] Add ARIA labels and roles to all interactive elements
+- [x] T045 [P] Add keyboard navigation indicators (visible focus rings inside shadow DOM)
+- [x] T046 [P] Optimize fuzzy search and pagination with memoization; debounce search input
+- [x] T047 [P] Refactor duplicate code; remove unused dependencies; optimize bundle size
+- [x] T048 [P] Write comprehensive API documentation and usage examples
+- [x] T049 [P] Add performance/stress Playwright tests (large trees, rapid navigation, memory cleanup)
+- [x] T050 [P] Add edge-case Playwright tests (keyboard combos, error recovery, responsive sizing)
+
+---
+
+## Open Items
+
+The following parent tasks showed incomplete in the Kiro task list despite their subtasks being complete. Verify each is truly closed:
+
+- [ ] T051 Verify shadow DOM integration is fully tested end-to-end (parent of T005–T008, T036–T037)
+- [ ] T052 Verify command palette highlight and fuzzy search enhancements are merged (parent of T027–T032)
+- [ ] T053 Verify accessibility and responsive design are validated in CI (parent of T044–T045)
+- [ ] T054 Verify final polish items are confirmed shipped (parent of T047–T050)
