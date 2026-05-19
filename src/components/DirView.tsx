@@ -1,6 +1,6 @@
-import { createEffect, createMemo, For, onCleanup, onMount, Show } from 'solid-js';
+import { createEffect, createMemo, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
 import { debugMode } from '../debug';
-import type { AppState, DirectoryItem, DirectoryNode, InputItem } from '../types';
+import type { AppState, DirectoryItem, DirectoryNode, InputItem, NavEntry, VirtualItem } from '../types';
 import type { SetStoreFunction } from 'solid-js/store';
 import { read, write } from '../storage/persist';
 import TitleBar from './TitleBar';
@@ -10,24 +10,17 @@ const ITEMS_PER_PAGE = 9;
 const MIN_WIDTH = 200;
 const MIN_HEIGHT = 150;
 
+interface EphemeralCtx {
+  /** history.length at the moment we entered ephemeral — used to snap back. */
+  returnHistoryLength: number;
+  onSelect?: (key: string, item: DirectoryItem) => void;
+}
+
 interface DirViewProps {
   state: AppState;
   set: SetStoreFunction<AppState>;
   keyPrefix: string;
   rootTree: DirectoryNode;
-}
-
-function walkPath(root: DirectoryNode, path: string[]): DirectoryNode {
-  let node = root;
-  for (const key of path) {
-    const item = node[key];
-    if (item?.type === 'directory') {
-      node = item.children;
-    } else {
-      break;
-    }
-  }
-  return node;
 }
 
 export default function DirView(props: DirViewProps) {
@@ -37,29 +30,103 @@ export default function DirView(props: DirViewProps) {
   let dragOffsetX = 0;
   let dragOffsetY = 0;
 
-  // Restore persisted window position on mount; wire keyboard handler directly
-  // (bypasses SolidJS event delegation which breaks in shadow DOM)
+  const [ephemeralCtx, setEphemeralCtx] = createSignal<EphemeralCtx | null>(null);
+
+  // ── Nav history helpers ──────────────────────────────────────────────────
+
+  const history = () => props.state.nav.history;
+  const currentEntry = () => history()[history().length - 1];
+  const currentNode = () => currentEntry()?.node ?? {};
+  const navPath = () => history().slice(1).map((e) => e.key);
+  const pathLabels = () => history().slice(1).map((e) => e.label);
+  const currentLabel = () => currentEntry()?.label ?? 'Root';
+  const canGoBack = () => history().length > 1;
+
+  function itemCount(node: DirectoryNode) {
+    return Math.max(1, Math.ceil(Object.keys(node).length / ITEMS_PER_PAGE));
+  }
+
+  function navigateInto(key: string, node: DirectoryNode, label: string) {
+    const entry: NavEntry = { key, label, node };
+    props.set('nav', (n) => ({
+      ...n,
+      history: [...n.history, entry],
+      page: 1,
+      totalPages: itemCount(node),
+    }));
+  }
+
+  function exitEphemeral(ctx: EphemeralCtx) {
+    const returnHistory = history().slice(0, ctx.returnHistoryLength);
+    const entry = returnHistory[returnHistory.length - 1];
+    props.set('nav', (n) => ({
+      ...n,
+      history: returnHistory,
+      page: 1,
+      totalPages: itemCount(entry?.node ?? {}),
+    }));
+    setEphemeralCtx(null);
+  }
+
+  function navigateBack() {
+    const h = history();
+    if (h.length <= 1) return;
+
+    const ctx = ephemeralCtx();
+    if (ctx && h.length <= ctx.returnHistoryLength + 1) {
+      exitEphemeral(ctx);
+      return;
+    }
+
+    const newHistory = h.slice(0, -1);
+    const parentEntry = newHistory[newHistory.length - 1];
+    props.set('nav', (n) => ({
+      ...n,
+      history: newHistory,
+      page: 1,
+      totalPages: itemCount(parentEntry?.node ?? {}),
+    }));
+  }
+
+  function navigateToBreadcrumb(index: number) {
+    const h = history();
+    // index -1 = root (history[0]), index 0 = first path segment (history[1]), etc.
+    const targetHistory = index === -1 ? [h[0]] : h.slice(0, index + 2);
+    const entry = targetHistory[targetHistory.length - 1];
+    props.set('nav', (n) => ({
+      ...n,
+      history: targetHistory,
+      page: 1,
+      totalPages: itemCount(entry?.node ?? {}),
+    }));
+    // Exit ephemeral if we navigated before the ephemeral entry point
+    const ctx = ephemeralCtx();
+    if (ctx && targetHistory.length <= ctx.returnHistoryLength) {
+      setEphemeralCtx(null);
+    }
+  }
+
+  // ── Window persistence ───────────────────────────────────────────────────
+
   onMount(() => {
     const stored = read<{ x: number; y: number; width: number; height: number }>(
       props.keyPrefix, 'window', 'state',
     );
-    if (stored) {
-      props.set('window', stored);
-    }
+    if (stored) props.set('window', stored);
     containerRef?.addEventListener('keydown', handleKeyDown);
   });
   onCleanup(() => containerRef?.removeEventListener('keydown', handleKeyDown));
 
-  // Persist window state on change
   createEffect(() => {
     const win = props.state.window;
     write(props.keyPrefix, 'window', 'state', win);
   });
 
-  const currentItems = createMemo(() => {
-    const node = props.state.nav.currentNode;
-    return Object.entries(node).map(([key, item]) => ({ key, item }));
-  });
+  // ── Item list memos ──────────────────────────────────────────────────────
+
+  const currentItems = createMemo(() =>
+    Object.entries(currentNode()).map(([key, item]) => ({ key, item })),
+  );
 
   const totalPages = createMemo(() =>
     Math.max(1, Math.ceil(currentItems().length / ITEMS_PER_PAGE)),
@@ -78,85 +145,77 @@ export default function DirView(props: DirViewProps) {
     }
   });
 
-  function navigateInto(key: string, node: DirectoryNode) {
-    const newPath = [...props.state.nav.path, key];
-    props.set('nav', {
-      path: newPath,
-      currentNode: node,
-      page: 1,
-      totalPages: Math.max(1, Math.ceil(Object.keys(node).length / ITEMS_PER_PAGE)),
-    });
-  }
-
-  function navigateBack() {
-    const path = props.state.nav.path;
-    if (path.length === 0) return;
-    const newPath = path.slice(0, -1);
-    const node = walkPath(props.rootTree, newPath);
-    props.set('nav', {
-      path: newPath,
-      currentNode: node,
-      page: 1,
-      totalPages: Math.max(1, Math.ceil(Object.keys(node).length / ITEMS_PER_PAGE)),
-    });
-  }
-
-  function navigateToBreadcrumb(index: number) {
-    const newPath = index === -1 ? [] : props.state.nav.path.slice(0, index + 1);
-    const node = walkPath(props.rootTree, newPath);
-    props.set('nav', {
-      path: newPath,
-      currentNode: node,
-      page: 1,
-      totalPages: Math.max(1, Math.ceil(Object.keys(node).length / ITEMS_PER_PAGE)),
-    });
-  }
+  // ── Item activation ──────────────────────────────────────────────────────
 
   function activateItem(entry: { key: string; item: DirectoryItem }) {
     const { key, item } = entry;
+    const ctx = ephemeralCtx();
 
     if (item.type === 'directory') {
-      navigateInto(key, item.children);
+      navigateInto(key, item.children, item.label);
     } else if (item.type === 'action') {
       item.action();
+      if (ctx) {
+        ctx.onSelect?.(key, item);
+        exitEphemeral(ctx);
+      }
     } else if (item.type === 'input') {
-      const stored = read<string | boolean | string[]>(props.keyPrefix, 'input', [...props.state.nav.path, key].join('.'));
+      const stored = read<string | boolean | string[]>(
+        props.keyPrefix, 'input', [...navPath(), key].join('.'),
+      );
       const itemWithStored: InputItem = stored !== null ? { ...item, defaultValue: stored } : item;
       props.set('palette', 'overlay', {
         type: 'input',
         item: itemWithStored,
         nodeKey: key,
-        nodePath: [...props.state.nav.path, key],
+        nodePath: [...navPath(), key],
       });
     } else if (item.type === 'virtual') {
-      let cancelled = false;
-      props.set('palette', 'overlay', {
-        type: 'loading',
-        item,
-        nodeKey: key,
-        cancel: () => { cancelled = true; },
-      });
-
-      item.load().then((subtree: DirectoryNode) => {
-        if (!cancelled) {
-          props.set('palette', 'overlay', null);
-          navigateInto(key, subtree);
-        }
-      }).catch((err: unknown) => {
-        props.set('palette', 'overlay', {
-          type: 'error',
-          message: err instanceof Error ? err.message : 'Load failed.',
-        });
-      });
+      handleVirtualActivation(key, item);
     }
   }
+
+  function handleVirtualActivation(key: string, item: VirtualItem) {
+    let cancelled = false;
+    props.set('palette', 'overlay', {
+      type: 'loading',
+      item,
+      nodeKey: key,
+      cancel: () => { cancelled = true; },
+    });
+
+    item.load().then((subtree: DirectoryNode) => {
+      if (cancelled) return;
+      props.set('palette', 'overlay', null);
+
+      if (item.mode === 'ephemeral') {
+        const returnHistoryLength = history().length;
+        navigateInto(key, subtree, item.label);
+        setEphemeralCtx({ returnHistoryLength, onSelect: item.onSelect });
+      } else {
+        navigateInto(key, subtree, item.label);
+      }
+    }).catch((err: unknown) => {
+      props.set('palette', 'overlay', {
+        type: 'error',
+        message: err instanceof Error ? err.message : 'Load failed.',
+      });
+    });
+  }
+
+  // ── Keyboard handler (attached via addEventListener to bypass SolidJS delegation) ─
 
   function handleKeyDown(e: KeyboardEvent) {
     if (props.state.mode !== 'dir' || !props.state.visible) return;
 
     if (e.key === 'Escape') {
       e.preventDefault();
-      props.set('visible', false);
+      const ctx = ephemeralCtx();
+      if (ctx) {
+        exitEphemeral(ctx);
+      } else {
+        props.set('visible', false);
+      }
       return;
     }
 
@@ -184,13 +243,12 @@ export default function DirView(props: DirViewProps) {
 
       const idx = num - 1;
       const items = pageItems();
-      if (idx < items.length) {
-        activateItem(items[idx]);
-      }
+      if (idx < items.length) activateItem(items[idx]);
     }
   }
 
-  // Drag
+  // ── Drag ─────────────────────────────────────────────────────────────────
+
   function startDrag(e: MouseEvent) {
     if (!containerRef) return;
     dragging = true;
@@ -219,7 +277,8 @@ export default function DirView(props: DirViewProps) {
     document.addEventListener('mouseup', onUp);
   }
 
-  // Resize
+  // ── Resize ────────────────────────────────────────────────────────────────
+
   function startResize(e: MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
@@ -253,24 +312,7 @@ export default function DirView(props: DirViewProps) {
     });
   }
 
-  const currentLabel = createMemo(() => {
-    const path = props.state.nav.path;
-    if (path.length === 0) return 'Root';
-    // Walk parent node to get the label of the last path segment
-    const parentPath = path.slice(0, -1);
-    const parentNode = walkPath(props.rootTree, parentPath);
-    const lastKey = path[path.length - 1];
-    const item = parentNode[lastKey];
-    return item?.type === 'directory' ? item.label : lastKey;
-  });
-
-  const pathLabels = createMemo(() => {
-    return props.state.nav.path.map((key, i) => {
-      const parentNode = walkPath(props.rootTree, props.state.nav.path.slice(0, i));
-      const item = parentNode[key];
-      return item?.type === 'directory' ? item.label : key;
-    });
-  });
+  // ── Visibility & focus ────────────────────────────────────────────────────
 
   const visible = createMemo(() => props.state.visible && props.state.mode === 'dir');
 
@@ -281,8 +323,10 @@ export default function DirView(props: DirViewProps) {
   createEffect(() => {
     if (!debugMode()) return;
     const v = visible();
-    console.log(`[Rove:DirView:${props.keyPrefix}] visible=${v} (state.visible=${props.state.visible} state.mode=${props.state.mode})`);
+    console.log(`[Rove:DirView:${props.keyPrefix}] visible=${v}`);
   });
+
+  // ── Render ────────────────────────────────────────────────────────────────
 
   return (
     <Show when={visible()}>
@@ -312,7 +356,8 @@ export default function DirView(props: DirViewProps) {
       >
         <TitleBar
           title={currentLabel()}
-          canGoBack={props.state.nav.path.length > 0}
+          canGoBack={canGoBack()}
+          ephemeral={ephemeralCtx() !== null}
           onBack={navigateBack}
           onModeSwap={() => props.set('mode', 'palette')}
           onClose={() => props.set('visible', false)}
@@ -328,11 +373,7 @@ export default function DirView(props: DirViewProps) {
         <div
           role="listbox"
           class="dirview-items"
-          style={{
-            flex: 1,
-            'overflow-y': 'auto',
-            padding: '4px 0',
-          }}
+          style={{ flex: 1, 'overflow-y': 'auto', padding: '4px 0' }}
         >
           <For each={pageItems()}>
             {(entry, i) => (
@@ -354,18 +395,14 @@ export default function DirView(props: DirViewProps) {
               >
                 <span
                   class="dirview-item-num"
-                  style={{
-                    color: 'var(--rove-text-dim)',
-                    'font-size': '11px',
-                    'min-width': '14px',
-                  }}
+                  style={{ color: 'var(--rove-text-dim)', 'font-size': '11px', 'min-width': '14px' }}
                 >
                   {i() + 1}.
                 </span>
                 <span class="dirview-item-label" style={{ flex: 1 }}>
                   {'label' in entry.item ? entry.item.label : entry.key}
                 </span>
-                <Show when={entry.item.type === 'directory'}>
+                <Show when={entry.item.type === 'directory' || entry.item.type === 'virtual'}>
                   <span style={{ color: 'var(--rove-text-dim)' }}>→</span>
                 </Show>
               </div>

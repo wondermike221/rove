@@ -223,7 +223,7 @@ function RootComponent(props: RootComponentProps) {
           }}
         >
           <div>[{props.keyPrefix}] visible={String(props.state.visible)} mode={props.state.mode}</div>
-          <div>theme={props.state.meta.theme} navKeys={Object.keys(props.state.nav.currentNode).length}</div>
+          <div>theme={props.state.meta.theme} navDepth={props.state.nav.history.length - 1}</div>
           <div>palettePin={props.state.meta.palettePin} overlay={String(props.state.palette.overlay?.type ?? 'null')}</div>
         </div>
       </Show>

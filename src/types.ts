@@ -59,7 +59,18 @@ export interface InputItem {
 export interface VirtualItem {
   type: 'virtual';
   label: string;
+  /**
+   * persistent (default): loaded subtree is navigated into and cached in the
+   * search index — user can return to it freely.
+   *
+   * ephemeral: loaded subtree is presented as a one-shot selection list.
+   * After the user picks an item, onSelect fires and the nav returns to where
+   * it was. The subtree is never added to the search index.
+   */
+  mode?: 'persistent' | 'ephemeral';
   load: () => Promise<DirectoryNode>;
+  /** Called when an item is picked in ephemeral mode. */
+  onSelect?: (key: string, item: DirectoryItem) => void;
 }
 
 // ─── Internal state types ──────────────────────────────────────────────────
@@ -87,9 +98,23 @@ export interface PaletteState {
   overlay: OverlayState | null;
 }
 
+/** One entry in the DirView navigation history. */
+export interface NavEntry {
+  /** Key in the parent node that led to this level (empty string for root). */
+  key: string;
+  /** Display label for this level. */
+  label: string;
+  /** The directory contents at this level. */
+  node: DirectoryNode;
+}
+
 export interface NavigationState {
-  path: string[];
-  currentNode: DirectoryNode;
+  /**
+   * Breadcrumb stack: history[0] is always the root, the last entry is the
+   * currently-visible level. Using a stack lets virtual/ephemeral subtrees
+   * navigate correctly without re-walking the static tree.
+   */
+  history: NavEntry[];
   page: number;
   totalPages: number;
 }

@@ -86,8 +86,7 @@ export function init(config: ConsumerConfig): ComponentInstance {
 
   // Initialize nav before mount so first render has correct root node
   set('nav', {
-    path: [],
-    currentNode: fullTree,
+    history: [{ key: '', label: 'Root', node: fullTree }],
     page: 1,
     totalPages: Math.max(1, Math.ceil(Object.keys(fullTree).length / 9)),
   });

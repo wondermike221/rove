@@ -1,6 +1,9 @@
+import { Show } from 'solid-js';
+
 interface TitleBarProps {
   title: string;
   canGoBack: boolean;
+  ephemeral?: boolean;
   onBack: () => void;
   onModeSwap: () => void;
   onClose: () => void;
@@ -47,16 +50,31 @@ export default function TitleBar(props: TitleBarProps) {
         class="titlebar-title"
         style={{
           flex: 1,
-          'text-align': 'center',
+          display: 'flex',
+          'align-items': 'center',
+          'justify-content': 'center',
+          gap: '6px',
           overflow: 'hidden',
-          'text-overflow': 'ellipsis',
-          'white-space': 'nowrap',
           'font-weight': '500',
           'font-size': '13px',
           color: 'var(--rove-text)',
         }}
       >
-        {props.title}
+        <Show when={props.ephemeral}>
+          <span style={{
+            'font-size': '10px',
+            'font-weight': '600',
+            color: 'var(--rove-accent)',
+            background: 'var(--rove-selected)',
+            padding: '1px 6px',
+            'border-radius': '10px',
+            'white-space': 'nowrap',
+            'flex-shrink': '0',
+          }}>Select</span>
+        </Show>
+        <span style={{ overflow: 'hidden', 'text-overflow': 'ellipsis', 'white-space': 'nowrap' }}>
+          {props.title}
+        </span>
       </span>
 
       <button

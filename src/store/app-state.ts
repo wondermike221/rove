@@ -31,8 +31,7 @@ function defaultAppState(meta: MetaSettings): AppState {
       overlay: null,
     },
     nav: {
-      path: [],
-      currentNode: {},
+      history: [],
       page: 1,
       totalPages: 1,
     },
@@ -72,6 +71,8 @@ export function setPaletteOverlay(set: SetStoreFunction<AppState>, overlay: Over
 export function setNav(set: SetStoreFunction<AppState>, update: Partial<NavigationState>): void {
   set('nav', (n) => ({ ...n, ...update }));
 }
+
+// Unused exports kept for potential consumer use
 
 export function setMeta(set: SetStoreFunction<AppState>, update: Partial<MetaSettings>): void {
   set('meta', (m) => ({ ...m, ...update }));

@@ -1,6 +1,6 @@
-import { createEffect, createMemo, For, Show } from 'solid-js';
+import { createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { debugMode } from '../debug';
-import type { AppState, DirectoryNode, InputItem, SearchIndex, SearchResult } from '../types';
+import type { AppState, DirectoryItem, DirectoryNode, InputItem, SearchIndex, SearchResult } from '../types';
 import type { SetStoreFunction } from 'solid-js/store';
 import { search, appendToIndex } from '../search/fuzzy';
 import { read } from '../storage/persist';
@@ -14,25 +14,81 @@ interface PaletteProps {
   setIndex: (idx: SearchIndex) => void;
 }
 
+interface EphemeralOption {
+  key: string;
+  item: DirectoryItem;
+}
+
+interface PaletteEphemeral {
+  options: EphemeralOption[];
+  label: string;
+  selectedIndex: number;
+  onSelect?: (key: string, item: DirectoryItem) => void;
+}
+
 export default function Palette(props: PaletteProps) {
   let inputRef: HTMLInputElement | undefined;
   let statusRef: HTMLDivElement | undefined;
+
+  const [paletteEphemeral, setPaletteEphemeral] = createSignal<PaletteEphemeral | null>(null);
+
+  // Clear ephemeral when palette hides
+  createEffect(() => {
+    if (!visible()) setPaletteEphemeral(null);
+  });
 
   createEffect(() => {
     if (visible() && props.state.palette.overlay === null) inputRef?.focus();
   });
 
   createEffect(() => {
+    if (paletteEphemeral()) return; // ephemeral mode uses its own filtering
     const query = props.state.palette.query;
     const results = query ? search(props.getIndex(), query) : [];
     props.set('palette', (p) => ({ ...p, results, selectedIndex: 0 }));
   });
 
+  // Ephemeral filtered options (substring match against label or key)
+  const ephemeralFiltered = createMemo<EphemeralOption[]>(() => {
+    const ctx = paletteEphemeral();
+    if (!ctx) return [];
+    const q = props.state.palette.query.toLowerCase();
+    if (!q) return ctx.options;
+    return ctx.options.filter(({ key, item }) =>
+      ('label' in item ? item.label : key).toLowerCase().includes(q),
+    );
+  });
+
   function handleInput(e: Event) {
-    props.set('palette', 'query', (e.target as HTMLInputElement).value);
+    const query = (e.target as HTMLInputElement).value;
+    props.set('palette', 'query', query);
+    // Reset ephemeral selected index when query changes
+    setPaletteEphemeral((prev) => prev ? { ...prev, selectedIndex: 0 } : null);
   }
 
   function handleKeyDown(e: KeyboardEvent) {
+    const eph = paletteEphemeral();
+
+    if (eph) {
+      const filtered = ephemeralFiltered();
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setPaletteEphemeral((p) => p ? { ...p, selectedIndex: Math.min(p.selectedIndex + 1, filtered.length - 1) } : null);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setPaletteEphemeral((p) => p ? { ...p, selectedIndex: Math.max(p.selectedIndex - 1, 0) } : null);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const selected = filtered[eph.selectedIndex];
+        if (selected) selectEphemeralOption(selected);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        setPaletteEphemeral(null);
+        props.set('palette', 'query', '');
+      }
+      return;
+    }
+
     const { results, selectedIndex } = props.state.palette;
 
     if (e.key === 'ArrowDown') {
@@ -55,6 +111,13 @@ export default function Palette(props: PaletteProps) {
     }
   }
 
+  function selectEphemeralOption(opt: EphemeralOption) {
+    const ctx = paletteEphemeral();
+    ctx?.onSelect?.(opt.key, opt.item);
+    setPaletteEphemeral(null);
+    props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
+  }
+
   function activateResult(result: SearchResult) {
     const item = result.item;
 
@@ -63,48 +126,37 @@ export default function Palette(props: PaletteProps) {
       props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
     } else if (item.type === 'input') {
       const stored = read<string | boolean | string[]>(props.keyPrefix, 'input', result.path.join('.'));
-      const itemWithStored: InputItem = stored !== null
-        ? { ...item, defaultValue: stored }
-        : item;
-      props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0, overlay: {
-        type: 'input',
-        item: itemWithStored,
-        nodeKey: result.key,
-        nodePath: result.path,
-      }}));
+      const itemWithStored: InputItem = stored !== null ? { ...item, defaultValue: stored } : item;
+      props.set('palette', (p) => ({
+        ...p,
+        query: '',
+        results: [],
+        selectedIndex: 0,
+        overlay: { type: 'input', item: itemWithStored, nodeKey: result.key, nodePath: result.path },
+      }));
     } else if (item.type === 'virtual') {
       let cancelled = false;
-      const cancel = () => { cancelled = true; };
+      props.set('palette', 'overlay', { type: 'loading', item, nodeKey: result.key, cancel: () => { cancelled = true; } });
 
-      props.set('palette', 'overlay', {
-        type: 'loading',
-        item,
-        nodeKey: result.key,
-        cancel,
-      });
+      item.load().then((subtree: DirectoryNode) => {
+        if (cancelled) return;
+        props.set('palette', 'overlay', null);
 
-      item.load().then((subtreeResult: DirectoryNode) => {
-        const newIndex = appendToIndex(
-          props.getIndex(),
-          subtreeResult,
-          result.path,
-          result.pathLabels,
-        );
-        props.setIndex(newIndex);
-        if (!cancelled) {
-          props.set('palette', 'overlay', null);
-        }
-        // Re-run search with updated index
-        const query = props.state.palette.query;
-        if (query) {
-          const newResults = search(newIndex, query);
-          props.set('palette', (p) => ({ ...p, results: newResults }));
+        if (item.mode === 'ephemeral') {
+          const options: EphemeralOption[] = Object.entries(subtree).map(([key, it]) => ({ key, item: it }));
+          setPaletteEphemeral({ options, label: item.label, selectedIndex: 0, onSelect: item.onSelect });
+          props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
+        } else {
+          const newIndex = appendToIndex(props.getIndex(), subtree, result.path, result.pathLabels);
+          props.setIndex(newIndex);
+          const query = props.state.palette.query;
+          if (query) {
+            const newResults = search(newIndex, query);
+            props.set('palette', (p) => ({ ...p, results: newResults }));
+          }
         }
       }).catch((err: unknown) => {
-        props.set('palette', 'overlay', {
-          type: 'error',
-          message: err instanceof Error ? err.message : 'Load failed.',
-        });
+        props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });
       });
     }
   }
@@ -114,8 +166,7 @@ export default function Palette(props: PaletteProps) {
 
   createEffect(() => {
     if (!debugMode()) return;
-    const v = visible();
-    console.log(`[Rove:Palette:${props.keyPrefix}] visible=${v} (state.visible=${props.state.visible} state.mode=${props.state.mode})`);
+    console.log(`[Rove:Palette:${props.keyPrefix}] visible=${visible()}`);
   });
 
   return (
@@ -136,7 +187,7 @@ export default function Palette(props: PaletteProps) {
         'pointer-events': 'none',
         'line-height': '1.6',
       }}>
-        P[{props.keyPrefix}] v.vis={String(props.state.visible)} v.mode={props.state.mode} memo={String(visible())}
+        P[{props.keyPrefix}] vis={String(visible())} eph={paletteEphemeral() ? paletteEphemeral()!.label : 'none'}
       </div>
     </Show>
     <Show when={visible()}>
@@ -166,12 +217,29 @@ export default function Palette(props: PaletteProps) {
             DEBUG: palette mounted [{props.keyPrefix}] pin={pin()}
           </div>
         </Show>
+
+        {/* Search / ephemeral header row */}
+        <Show when={paletteEphemeral() !== null}>
+          <div style={{
+            padding: '6px 14px',
+            'font-size': '11px',
+            color: 'var(--rove-accent)',
+            background: 'var(--rove-selected)',
+            display: 'flex',
+            'align-items': 'center',
+            gap: '6px',
+          }}>
+            <span style={{ 'font-weight': '600' }}>Select: {paletteEphemeral()!.label}</span>
+            <span style={{ color: 'var(--rove-text-dim)', 'margin-left': 'auto' }}>Esc to cancel</span>
+          </div>
+        </Show>
+
         <div class="palette-input-row" style={{ display: 'flex', 'align-items': 'center' }}>
           <input
             ref={inputRef}
             type="text"
             class="palette-input"
-            placeholder="Search…"
+            placeholder={paletteEphemeral() ? 'Filter…' : 'Search…'}
             value={props.state.palette.query}
             onInput={handleInput}
             onKeyDown={handleKeyDown}
@@ -216,40 +284,77 @@ export default function Palette(props: PaletteProps) {
           role="status"
           aria-live="polite"
           aria-atomic="true"
-          style={{
-            position: 'absolute',
-            width: '1px',
-            height: '1px',
-            overflow: 'hidden',
-            clip: 'rect(0,0,0,0)',
-            'white-space': 'nowrap',
-          }}
+          style={{ position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', 'white-space': 'nowrap' }}
         >
-          {props.state.palette.results.length > 0
-            ? `${props.state.palette.results.length} results`
-            : props.state.palette.query ? 'No results' : ''}
+          {paletteEphemeral()
+            ? `${ephemeralFiltered().length} options`
+            : props.state.palette.results.length > 0
+              ? `${props.state.palette.results.length} results`
+              : props.state.palette.query ? 'No results' : ''}
         </div>
 
-        <div
-          id="palette-results"
-          role="listbox"
-          style={{
-            'max-height': '50vh',
-            'overflow-y': 'auto',
-            'border-top': props.state.palette.results.length > 0 ? '1px solid var(--rove-border)' : 'none',
-          }}
-        >
-          <For each={props.state.palette.results}>
-            {(result, i) => (
-              <PaletteResult
-                result={result}
-                selected={i() === props.state.palette.selectedIndex}
-                onActivate={() => activateResult(result)}
-              />
-            )}
-          </For>
-        </div>
+        {/* Ephemeral option list */}
+        <Show when={paletteEphemeral() !== null}>
+          <div
+            id="palette-results"
+            role="listbox"
+            style={{ 'max-height': '50vh', 'overflow-y': 'auto', 'border-top': '1px solid var(--rove-border)' }}
+          >
+            <For each={ephemeralFiltered()}>
+              {(opt, i) => {
+                const selected = () => i() === (paletteEphemeral()?.selectedIndex ?? -1);
+                return (
+                  <div
+                    role="option"
+                    aria-selected={selected()}
+                    onClick={() => selectEphemeralOption(opt)}
+                    style={{
+                      display: 'flex',
+                      'align-items': 'center',
+                      padding: '8px 14px',
+                      cursor: 'pointer',
+                      background: selected() ? 'var(--rove-selected)' : 'transparent',
+                      color: 'var(--rove-text)',
+                      'font-size': '14px',
+                    }}
+                    onMouseEnter={(e) => { if (!selected()) e.currentTarget.style.background = 'var(--rove-hover)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = selected() ? 'var(--rove-selected)' : ''; }}
+                  >
+                    {'label' in opt.item ? opt.item.label : opt.key}
+                  </div>
+                );
+              }}
+            </For>
+            <Show when={ephemeralFiltered().length === 0}>
+              <div style={{ padding: '8px 14px', color: 'var(--rove-text-dim)', 'font-size': '13px' }}>
+                No options match
+              </div>
+            </Show>
+          </div>
+        </Show>
 
+        {/* Normal search results */}
+        <Show when={paletteEphemeral() === null}>
+          <div
+            id="palette-results"
+            role="listbox"
+            style={{
+              'max-height': '50vh',
+              'overflow-y': 'auto',
+              'border-top': props.state.palette.results.length > 0 ? '1px solid var(--rove-border)' : 'none',
+            }}
+          >
+            <For each={props.state.palette.results}>
+              {(result, i) => (
+                <PaletteResult
+                  result={result}
+                  selected={i() === props.state.palette.selectedIndex}
+                  onActivate={() => activateResult(result)}
+                />
+              )}
+            </For>
+          </div>
+        </Show>
       </div>
     </Show>
     </>
