@@ -67,6 +67,27 @@ const STYLES = `
   outline-offset: -2px;
 }
 
+/* DirView inline text/textarea input */
+.dirview-inline {
+  flex: 1; display: flex; flex-direction: column; padding: 12px; gap: 8px; overflow: hidden;
+}
+.dirview-inline-label {
+  font-size: 11px; font-weight: 600; color: var(--rove-text-dim);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.dirview-inline-field {
+  width: 100%; padding: 8px 10px; box-sizing: border-box;
+  border: 1px solid var(--rove-border); border-radius: calc(var(--rove-border-radius) - 2px);
+  background: var(--rove-input-bg); color: var(--rove-text);
+  font-size: 14px; font-family: var(--rove-font-family); outline: none; resize: vertical;
+}
+.dirview-inline-field:focus { border-color: var(--rove-accent); }
+.dirview-inline-hint { font-size: 11px; color: var(--rove-text-dim); }
+.dirview-multiselect-footer {
+  padding: 4px 12px; font-size: 11px; color: var(--rove-text-dim);
+  border-top: 1px solid var(--rove-border); text-align: center;
+}
+
 /* Modal sheet */
 .modal-input { display: flex; flex-direction: column; gap: 6px; }
 .modal-label { font-size: 12px; font-weight: 600; color: var(--rove-text-dim); }
