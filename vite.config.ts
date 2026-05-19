@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'dirnav',
+      name: 'Rove',
       formats: ['es', 'umd'],
       fileName: (format) => format === 'es' ? 'index.js' : 'index.umd.cjs',
     },
@@ -20,6 +20,7 @@ export default defineConfig({
         globals: {
           'solid-js': 'SolidJS',
           'solid-js/web': 'SolidJSWeb',
+          'solid-js/store': 'SolidJSStore',
           'solid-transition-group': 'SolidTransitionGroup',
         },
       },

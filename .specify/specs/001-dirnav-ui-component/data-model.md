@@ -1,4 +1,4 @@
-# Data Model: [TBD] UI Component
+# Data Model: Rove UI Component
 
 **Feature**: 001-dirnav-ui-component | **Date**: 2026-05-13
 

@@ -1,4 +1,4 @@
-# Research: [TBD] UI Component
+# Research: Rove UI Component
 
 **Feature**: 001-dirnav-ui-component | **Date**: 2026-05-13
 

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rove — Demo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #0f1117;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    .subtitle {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+    }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+
+    .card h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #666;
+      margin: 0 0 14px;
+    }
+
+    .shortcut-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .shortcut-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .shortcut-list .desc {
+      color: #bbb;
+    }
+
+    kbd {
+      background: #2a2d3a;
+      border: 1px solid #3a3d4a;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 11px;
+      font-family: monospace;
+      color: #ccc;
+      white-space: nowrap;
+    }
+
+    .instance-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-1 { background: #1a3a5c; color: #4fc3f7; }
+    .badge-2 { background: #3a1a5c; color: #ce93d8; }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature-list li {
+      font-size: 13px;
+      color: #bbb;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+      font-size: 11px;
+    }
+
+    .status {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    #log {
+      margin-top: 16px;
+      background: #0a0c12;
+      border: 1px solid #2a2d3a;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #4fc3f7;
+      max-height: 120px;
+      overflow-y: auto;
+      min-height: 44px;
+    }
+
+    .log-entry { opacity: 0.7; margin-bottom: 2px; }
+    .log-entry.new { opacity: 1; color: #80deea; }
+  </style>
+</head>
+<body>
+  <h1>Rove</h1>
+  <p class="subtitle">Dual-mode command palette + directory navigator — live demo</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Instance 1 <span class="instance-badge badge-1">demo</span></h2>
+      <ul class="shortcut-list">
+        <li><span class="desc">Toggle visibility</span><kbd>Ctrl + `</kbd></li>
+        <li><span class="desc">Swap palette ↔ dir view</span><kbd>Ctrl + Shift + `</kbd></li>
+        <li><span class="desc">Navigate up</span><kbd>Backspace</kbd></li>
+        <li><span class="desc">Select item</span><kbd>1</kbd>–<kbd>9</kbd></li>
+        <li><span class="desc">Move selection</span><kbd>↑</kbd> <kbd>↓</kbd></li>
+        <li><span class="desc">Activate / accept</span><kbd>Enter</kbd> / <kbd>Ctrl+Enter</kbd></li>
+        <li><span class="desc">Clear / dismiss</span><kbd>Esc</kbd></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Instance 2 <span class="instance-badge badge-2">demo2</span></h2>
+      <ul class="shortcut-list">
+        <li><span class="desc">Toggle visibility</span><kbd>Ctrl + Shift + K</kbd></li>
+        <li><span class="desc">Swap palette ↔ dir view</span><kbd>Ctrl + Shift + M</kbd></li>
+      </ul>
+      <p style="margin-top:12px; font-size:12px; color:#555;">
+        Isolated state, separate localStorage namespace, independent shortcuts.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Node types exercised</h2>
+      <ul class="feature-list">
+        <li>Action nodes — callback fires immediately</li>
+        <li>Text input — single-line, persisted</li>
+        <li>Textarea — multi-line (Enter = newline, Ctrl+Enter = accept)</li>
+        <li>Checkbox — boolean toggle</li>
+        <li>Select — single choice dropdown</li>
+        <li>Select-multiple — multi-choice list</li>
+        <li>Virtual node — async load with loading overlay</li>
+        <li>Directory nodes — nested navigation</li>
+        <li>Meta directory — built-in settings (theme, mode, shortcuts)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Features</h2>
+      <ul class="feature-list">
+        <li>Shadow DOM — zero style leakage</li>
+        <li>Fuzzy search across all leaf nodes</li>
+        <li>Palette pinned top or bottom</li>
+        <li>Dir view drag + resize + persist position</li>
+        <li>Light / dark / system theme</li>
+        <li>Focus-scoped shortcuts</li>
+        <li>Multi-instance isolation</li>
+        <li>localStorage persistence</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:24px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+    <button id="btn-show" style="background:#1565c0;color:#fff;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;font-size:13px;">Show Palette (Instance 1)</button>
+    <button id="btn-hide" style="background:#333;color:#ccc;border:1px solid #444;border-radius:6px;padding:8px 16px;cursor:pointer;font-size:13px;">Hide</button>
+    <button id="btn-show2" style="background:#6a1b9a;color:#fff;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;font-size:13px;">Show Palette (Instance 2)</button>
+    <label style="display:flex;align-items:center;gap:6px;color:#888;font-size:12px;cursor:pointer;margin-left:8px;">
+      <input type="checkbox" id="btn-debug" style="cursor:pointer;" />
+      Debug overlays
+    </label>
+  </div>
+
+  <div style="margin-top:12px;">
+    <strong style="color:#666;font-size:12px;">Key monitor (press any key):</strong>
+    <div id="keymon" style="margin-top:6px;background:#0a0c12;border:1px solid #2a2d3a;border-radius:6px;padding:10px 14px;font-family:monospace;font-size:11px;color:#aaa;min-height:32px;">
+      Press any key to see event details…
+    </div>
+  </div>
+
+  <div class="status">
+    <strong style="color:#888;">Action log:</strong>
+    <div id="log"><div class="log-entry">Waiting for actions…</div></div>
+  </div>
+
+  <script>
+    document.addEventListener('keydown', function(e) {
+      var el = document.getElementById('keymon');
+      if (!el) return;
+      el.textContent = 'key="' + e.key + '"  code="' + e.code + '"  ctrl=' + e.ctrlKey + '  shift=' + e.shiftKey + '  alt=' + e.altKey;
+    }, true);
+  </script>
+
+  <script type="module" src="/demo/main.ts"></script>
+</body>
+</html>

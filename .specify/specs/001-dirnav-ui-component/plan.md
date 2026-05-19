@@ -1,4 +1,4 @@
-# Implementation Plan: [TBD] UI Component
+# Implementation Plan: Rove UI Component
 
 **Branch**: `main` | **Date**: 2026-05-13 | **Spec**: [spec.md](spec.md)
 
@@ -140,7 +140,7 @@ See `contracts/api.md` for full contract.
 **Public surface**:
 - `init(config: ConsumerConfig): ComponentInstance`
 - `ComponentInstance`: `{ show, hide, toggle, destroy }`
-- Userscript global: `window.__TBD__ = { init }`
+- Userscript global: `window.__ROVE__ = { init }`
 
 ### Architecture Notes
 

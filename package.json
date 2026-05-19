@@ -1,8 +1,8 @@
 {
-  "name": "dirnav",
+  "name": "rove",
   "version": "0.1.0",
   "type": "module",
-  "description": "SolidJS directory navigation UI component",
+  "description": "Dual-mode command palette and directory navigation UI component",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,7 +17,10 @@
     "dist"
   ],
   "scripts": {
+    "demo": "vite --config vite.demo.config.ts",
     "build": "tsc --noEmit && vite build",
+    "build:userscript": "vite build --config vite.userscript.config.ts",
+    "build:all": "npm run build && npm run build:userscript",
     "dev": "vite build --watch"
   },
   "peerDependencies": {
@@ -25,6 +28,7 @@
     "solid-transition-group": "^0.3.0"
   },
   "devDependencies": {
+    "@leeoniya/ufuzzy": "^1.0.19",
     "solid-js": "^1.9.7",
     "solid-transition-group": "^0.3.0",
     "typescript": "^5.8.3",

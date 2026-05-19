@@ -1,4 +1,4 @@
-# Public API Contract: [TBD] UI Component
+# Public API Contract: Rove UI Component
 
 **Feature**: 001-dirnav-ui-component | **Date**: 2026-05-13
 
@@ -7,9 +7,9 @@
 ## Entry Point
 
 ```ts
-import { init } from '[tbd]';                 // ESM / host-app
+import { init } from 'rove';                 // ESM / host-app
 // or
-const { init } = window.__TBD__;             // userscript IIFE global
+const { init } = window.__ROVE__;             // userscript IIFE global
 ```
 
 ---
@@ -73,11 +73,11 @@ All errors are thrown synchronously during `init()`. No runtime error events.
 
 | Condition | Message |
 |-----------|---------|
-| `meta` key in consumer tree | `"[TBD]: 'meta' is a reserved node key."` |
-| Invalid `type` on any node | `"[TBD]: Invalid node type '{type}' on node '{key}'."` |
-| Missing `keyPrefix` | `"[TBD]: 'keyPrefix' is required."` |
-| `select`/`select-multiple` without `options` | `"[TBD]: InputItem '{key}' with inputType '{inputType}' requires a non-empty 'options' array."` |
-| `defaultValue` type mismatch | `"[TBD]: InputItem '{key}' defaultValue type does not match inputType '{inputType}'."` |
+| `meta` key in consumer tree | `"Rove: 'meta' is a reserved node key."` |
+| Invalid `type` on any node | `"Rove: Invalid node type '{type}' on node '{key}'."` |
+| Missing `keyPrefix` | `"Rove: 'keyPrefix' is required."` |
+| `select`/`select-multiple` without `options` | `"Rove: InputItem '{key}' with inputType '{inputType}' requires a non-empty 'options' array."` |
+| `defaultValue` type mismatch | `"Rove: InputItem '{key}' defaultValue type does not match inputType '{inputType}'."` |
 
 ---
 
@@ -125,9 +125,9 @@ The component exposes CSS custom properties on its shadow host for advanced cons
 
 ```css
 /* Applied to the shadow host element */
---tbd-font-family: inherit;
---tbd-border-radius: 6px;
---tbd-z-index: 999999;
+--rove-font-family: inherit;
+--rove-border-radius: 6px;
+--rove-z-index: 999999;
 ```
 
 Internal theme tokens (light/dark) are managed via CSS custom properties within the shadow stylesheet and are not overridable from outside the shadow root.
@@ -136,14 +136,14 @@ Internal theme tokens (light/dark) are managed via CSS custom properties within 
 
 ## Userscript Usage
 
-The IIFE build exposes a global `window.__TBD__` object containing `{ init }`. Include the script via `@require`:
+The IIFE build exposes a global `window.__ROVE__` object containing `{ init }`. Include the script via `@require`:
 
 ```js
 // ==UserScript==
 // @name         My Script
-// @require      https://github.com/[user]/[tbd]/releases/latest/download/[tbd].user.js
+// @require      https://github.com/[user]/rove/releases/latest/download/rove.user.js
 // @grant        none
 // ==/UserScript==
 
-window.__TBD__.init({ keyPrefix: 'myscript', tree: { ... } });
+window.__ROVE__.init({ keyPrefix: 'myscript', tree: { ... } });
 ```

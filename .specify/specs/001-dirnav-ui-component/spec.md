@@ -1,4 +1,4 @@
-# Feature Specification: [TBD] UI Component
+# Feature Specification: Rove UI Component
 
 - **Feature Branch**: main
 - **Created**: 2026-05-13
@@ -9,7 +9,7 @@
 
 ## Overview
 
-[TBD] is a framework-agnostic floating UI component built with SolidJS internally and distributed as a vanilla JS library. It provides two interaction modes — a **command palette** (default) and a **directory view** — switchable at any time. It embeds via shadow DOM to avoid style collisions with the host page.
+Rove is a framework-agnostic floating UI component built with SolidJS internally and distributed as a vanilla JS library. It provides two interaction modes — a **command palette** (default) and a **directory view** — switchable at any time. It embeds via shadow DOM to avoid style collisions with the host page.
 
 ---
 
