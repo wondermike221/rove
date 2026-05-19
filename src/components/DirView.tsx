@@ -112,9 +112,18 @@ export default function DirView(props: DirViewProps) {
   onMount(() => {
     const stored = read<{ x: number; y: number; width: number; height: number }>(props.keyPrefix, 'window', 'state');
     if (stored) props.set('window', stored);
-    containerRef?.addEventListener('keydown', handleKeyDown);
   });
-  onCleanup(() => containerRef?.removeEventListener('keydown', handleKeyDown));
+
+  // Attach keyboard handler AFTER visible() flips — at that point <Show> has already
+  // rendered the div and assigned containerRef. onMount fires before the div exists
+  // (visible is false on initial mount) so we can't use it for this.
+  createEffect(() => {
+    if (!visible()) return;
+    const el = containerRef;
+    if (!el) return;
+    el.addEventListener('keydown', handleKeyDown);
+    onCleanup(() => el.removeEventListener('keydown', handleKeyDown));
+  });
 
   createEffect(() => write(props.keyPrefix, 'window', 'state', props.state.window));
 
