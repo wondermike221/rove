@@ -39,6 +39,7 @@ interface DirViewProps {
 
 export default function DirView(props: DirViewProps) {
   let containerRef: HTMLDivElement | undefined;
+  let inlineFieldRef: HTMLInputElement | HTMLTextAreaElement | undefined;
   let dragging = false;
   let resizing = false;
   let dragOffsetX = 0;
@@ -50,6 +51,19 @@ export default function DirView(props: DirViewProps) {
   const [multiSelectMode, setMultiSelectMode] = createSignal<MultiSelectMode | null>(null);
   // Bumped after any write() call so value-display spans re-read localStorage
   const [valueSeed, setValueSeed] = createSignal(0);
+
+  // Focus inline field after inlineTextMode activates — rAF ensures DOM is settled
+  createEffect(() => {
+    const mode = inlineTextMode();
+    if (!mode) { inlineFieldRef = undefined; return; }
+    requestAnimationFrame(() => {
+      const el = inlineFieldRef;
+      if (!el) return;
+      el.focus();
+      const len = el.value.length;
+      (el as HTMLInputElement).setSelectionRange?.(len, len);
+    });
+  });
 
   // ── Nav history helpers ──────────────────────────────────────────────────
 
@@ -432,11 +446,7 @@ export default function DirView(props: DirViewProps) {
                 <Show when={mode().item.inputType === 'textarea'}>
                   <textarea
                     class="dirview-inline-field"
-                    ref={(el) => {
-                      el.focus();
-                      const len = el.value.length;
-                      el.setSelectionRange(len, len);
-                    }}
+                    ref={(el) => { inlineFieldRef = el; }}
                     value={inlineTextValue()}
                     onInput={(e) => setInlineTextValue(e.currentTarget.value)}
                     onKeyDown={(e) => {
@@ -448,11 +458,7 @@ export default function DirView(props: DirViewProps) {
                   <input
                     type="text"
                     class="dirview-inline-field"
-                    ref={(el) => {
-                      el.focus();
-                      const len = el.value.length;
-                      el.setSelectionRange(len, len);
-                    }}
+                    ref={(el) => { inlineFieldRef = el; }}
                     value={inlineTextValue()}
                     onInput={(e) => setInlineTextValue(e.currentTarget.value)}
                     onKeyDown={(e) => {
