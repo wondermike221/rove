@@ -124,15 +124,15 @@ export function init(config: ConsumerConfig): ComponentInstance {
     }
   });
 
-  // Palette auto-hides when focus moves outside the host (capture focusin on document)
-  const paletteBlurHandler = (e: FocusEvent) => {
+  // Palette auto-hides when focus/click moves outside the host
+  const paletteBlurHandler = (e: FocusEvent | MouseEvent) => {
     if (state.mode !== 'palette' || !state.visible) return;
-    const path = e.composedPath();
-    if (!path.includes(host)) {
+    if (!e.composedPath().includes(host)) {
       set('visible', false);
     }
   };
   document.addEventListener('focusin', paletteBlurHandler, true);
+  document.addEventListener('mousedown', paletteBlurHandler, true);
 
   // Mode-swap focus-scoped shortcut
   registry.registerScoped(meta.modeSwapShortcut, 'mode-swap', (e) => {
@@ -162,6 +162,7 @@ export function init(config: ConsumerConfig): ComponentInstance {
   function destroy(): void {
     registry.destroy();
     document.removeEventListener('focusin', paletteBlurHandler, true);
+    document.removeEventListener('mousedown', paletteBlurHandler, true);
     dispose();
     host.remove();
     clear(config.keyPrefix);

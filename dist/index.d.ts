@@ -53,7 +53,18 @@ export declare type InputType = 'text' | 'textarea' | 'checkbox' | 'select' | 's
 export declare interface VirtualItem {
     type: 'virtual';
     label: string;
+    /**
+     * persistent (default): loaded subtree is navigated into and cached in the
+     * search index — user can return to it freely.
+     *
+     * ephemeral: loaded subtree is presented as a one-shot selection list.
+     * After the user picks an item, onSelect fires and the nav returns to where
+     * it was. The subtree is never added to the search index.
+     */
+    mode?: 'persistent' | 'ephemeral';
     load: () => Promise<DirectoryNode>;
+    /** Called when an item is picked in ephemeral mode. */
+    onSelect?: (key: string, item: DirectoryItem) => void;
 }
 
 export { }
