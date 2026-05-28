@@ -124,6 +124,7 @@ export default function Palette(props: PaletteProps) {
     if (item.type === 'action') {
       item.action();
       props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
+      requestAnimationFrame(() => inputRef?.focus());
     } else if (item.type === 'input') {
       const stored = read<string | boolean | string[]>(props.keyPrefix, 'input', result.path.join('.'));
       const itemWithStored: InputItem = stored !== null ? { ...item, defaultValue: stored } : item;
