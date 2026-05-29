@@ -1,10 +1,10 @@
 {
   "nodes": [
     {
-      "id": "speckit_git_commit_cmd",
-      "label": "speckit.git.commit Command",
+      "id": "plan_template_plan_template",
+      "label": "Plan Template",
       "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.commit.md",
+      "source_file": ".specify/templates/plan-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -12,10 +12,10 @@
       "contributor": null
     },
     {
-      "id": "speckit_git_feature_cmd",
-      "label": "speckit.git.feature Command",
+      "id": "plan_template_technical_context",
+      "label": "Technical Context Section",
       "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.feature.md",
+      "source_file": ".specify/templates/plan-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -23,10 +23,10 @@
       "contributor": null
     },
     {
-      "id": "speckit_git_initialize_cmd",
-      "label": "speckit.git.initialize Command",
+      "id": "plan_template_constitution_check",
+      "label": "Constitution Check Gate",
       "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.initialize.md",
+      "source_file": ".specify/templates/plan-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -34,10 +34,10 @@
       "contributor": null
     },
     {
-      "id": "speckit_git_remote_cmd",
-      "label": "speckit.git.remote Command",
+      "id": "plan_template_project_structure",
+      "label": "Project Structure Section",
       "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.remote.md",
+      "source_file": ".specify/templates/plan-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -45,10 +45,10 @@
       "contributor": null
     },
     {
-      "id": "speckit_git_validate_cmd",
-      "label": "speckit.git.validate Command",
+      "id": "plan_template_complexity_tracking",
+      "label": "Complexity Tracking Table",
       "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.validate.md",
+      "source_file": ".specify/templates/plan-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -56,106 +56,7 @@
       "contributor": null
     },
     {
-      "id": "git_config_yml",
-      "label": "Git Extension Configuration (git-config.yml)",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/git-config.yml",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "git_extension_readme",
-      "label": "Git Branching Workflow Extension README",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "auto_commit_behavior",
-      "label": "Auto-Commit Hook Behavior",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.commit.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "branch_numbering_strategy",
-      "label": "Branch Numbering Strategy (Sequential / Timestamp)",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.feature.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "branch_naming_convention",
-      "label": "Feature Branch Naming Convention",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.validate.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "git_remote_detection",
-      "label": "Git Remote URL Detection (GitHub Integration)",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/commands/speckit.git.remote.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "graceful_degradation_no_git",
-      "label": "Graceful Degradation When Git Unavailable",
-      "file_type": "document",
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "constitution_template",
-      "label": "Project Constitution Template",
-      "file_type": "document",
-      "source_file": ".specify/templates/constitution-template.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "constitution_memory",
-      "label": "Project Constitution (Memory / Unfilled)",
-      "file_type": "document",
-      "source_file": ".specify/memory/constitution.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "spec_template",
+      "id": "spec_template_spec_template",
       "label": "Feature Specification Template",
       "file_type": "document",
       "source_file": ".specify/templates/spec-template.md",
@@ -166,10 +67,10 @@
       "contributor": null
     },
     {
-      "id": "plan_template",
-      "label": "Implementation Plan Template",
+      "id": "spec_template_user_stories",
+      "label": "User Stories Section",
       "file_type": "document",
-      "source_file": ".specify/templates/plan-template.md",
+      "source_file": ".specify/templates/spec-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -177,8 +78,52 @@
       "contributor": null
     },
     {
-      "id": "tasks_template",
-      "label": "Tasks List Template",
+      "id": "spec_template_functional_requirements",
+      "label": "Functional Requirements Section",
+      "file_type": "document",
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "spec_template_success_criteria",
+      "label": "Success Criteria Section",
+      "file_type": "document",
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "spec_template_acceptance_scenarios",
+      "label": "Acceptance Scenarios (Given/When/Then)",
+      "file_type": "document",
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "spec_template_edge_cases",
+      "label": "Edge Cases Section",
+      "file_type": "document",
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "tasks_template_tasks_template",
+      "label": "Tasks Template",
       "file_type": "document",
       "source_file": ".specify/templates/tasks-template.md",
       "source_location": null,
@@ -188,10 +133,10 @@
       "contributor": null
     },
     {
-      "id": "checklist_template",
-      "label": "Checklist Template",
+      "id": "tasks_template_phase_setup",
+      "label": "Phase 1: Setup",
       "file_type": "document",
-      "source_file": ".specify/templates/checklist-template.md",
+      "source_file": ".specify/templates/tasks-template.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -199,8 +144,74 @@
       "contributor": null
     },
     {
-      "id": "speckit_workflow_yml",
-      "label": "Spec Kit Full SDD Cycle Workflow",
+      "id": "tasks_template_phase_foundational",
+      "label": "Phase 2: Foundational (Blocking Prerequisites)",
+      "file_type": "document",
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "tasks_template_phase_user_story",
+      "label": "User Story Phases (P1, P2, P3)",
+      "file_type": "document",
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "tasks_template_phase_polish",
+      "label": "Phase N: Polish and Cross-Cutting Concerns",
+      "file_type": "document",
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "tasks_template_parallel_marker",
+      "label": "Parallel Task Marker [P]",
+      "file_type": "document",
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "tasks_template_mvp_strategy",
+      "label": "MVP-First Delivery Strategy",
+      "file_type": "document",
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "workflow_speckit_workflow",
+      "label": "Full SDD Cycle Workflow",
+      "file_type": "document",
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "GitHub",
+      "contributor": null
+    },
+    {
+      "id": "workflow_review_gate",
+      "label": "Review Gate Step",
       "file_type": "document",
       "source_file": ".specify/workflows/speckit/workflow.yml",
       "source_location": null,
@@ -210,10 +221,10 @@
       "contributor": null
     },
     {
-      "id": "rove_spec",
-      "label": "Rove UI Component Feature Specification",
+      "id": "workflow_integration_input",
+      "label": "AI Integration Input (copilot/claude/gemini)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": ".specify/workflows/speckit/workflow.yml",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -221,10 +232,10 @@
       "contributor": null
     },
     {
-      "id": "rove_plan",
-      "label": "Rove UI Component Implementation Plan",
+      "id": "workflow_scope_input",
+      "label": "Workflow Scope Input (full/backend-only/frontend-only)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
+      "source_file": ".specify/workflows/speckit/workflow.yml",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -232,10 +243,21 @@
       "contributor": null
     },
     {
-      "id": "rove_data_model",
-      "label": "Rove UI Component Data Model",
+      "id": "skill_analyze_speckit_analyze",
+      "label": "speckit-analyze Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_analyze_constitution_authority",
+      "label": "Constitution as Non-Negotiable Authority",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -243,10 +265,10 @@
       "contributor": null
     },
     {
-      "id": "rove_research",
-      "label": "Rove UI Component Technology Research",
+      "id": "skill_analyze_coverage_gap_detection",
+      "label": "Coverage Gap Detection",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -254,10 +276,10 @@
       "contributor": null
     },
     {
-      "id": "rove_tasks",
-      "label": "Rove UI Component Tasks",
+      "id": "skill_analyze_severity_levels",
+      "label": "Severity Levels (CRITICAL/HIGH/MEDIUM/LOW)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -265,10 +287,10 @@
       "contributor": null
     },
     {
-      "id": "rove_api_contract",
-      "label": "Rove Public API Contract",
+      "id": "skill_analyze_extension_hooks",
+      "label": "Extension Hook System (before/after_analyze)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -276,10 +298,21 @@
       "contributor": null
     },
     {
-      "id": "consumer_config_type",
-      "label": "ConsumerConfig Type",
+      "id": "skill_checklist_speckit_checklist",
+      "label": "speckit-checklist Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_checklist_unit_tests_for_english",
+      "label": "Unit Tests for English Concept",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -287,10 +320,10 @@
       "contributor": null
     },
     {
-      "id": "component_instance_type",
-      "label": "ComponentInstance Type (show/hide/toggle/destroy)",
+      "id": "skill_checklist_requirement_quality_dimensions",
+      "label": "Requirement Quality Dimensions",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -298,10 +331,10 @@
       "contributor": null
     },
     {
-      "id": "directory_node_type",
-      "label": "DirectoryNode Type",
+      "id": "skill_checklist_chk_id_format",
+      "label": "CHK### ID Format for Checklist Items",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -309,10 +342,21 @@
       "contributor": null
     },
     {
-      "id": "directory_item_union",
-      "label": "DirectoryItem Discriminated Union (directory/action/input/virtual)",
+      "id": "skill_clarify_speckit_clarify",
+      "label": "speckit-clarify Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_clarify_ambiguity_taxonomy",
+      "label": "Ambiguity Taxonomy (Functional/Domain/UX/NFR/Integration)",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -320,10 +364,10 @@
       "contributor": null
     },
     {
-      "id": "input_item_type",
-      "label": "InputItem Type (text/textarea/checkbox/select/select-multiple)",
+      "id": "skill_clarify_max_5_questions",
+      "label": "Maximum 5 Clarification Questions Constraint",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -331,10 +375,10 @@
       "contributor": null
     },
     {
-      "id": "virtual_item_type",
-      "label": "VirtualItem Type (async load)",
+      "id": "skill_clarify_sequential_questioning",
+      "label": "Sequential One-at-a-Time Questioning Loop",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -342,10 +386,10 @@
       "contributor": null
     },
     {
-      "id": "app_state_type",
-      "label": "AppState (root SolidJS store)",
+      "id": "skill_clarify_incremental_spec_update",
+      "label": "Incremental Spec Update After Each Answer",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -353,10 +397,21 @@
       "contributor": null
     },
     {
-      "id": "palette_state_type",
-      "label": "PaletteState Type",
+      "id": "skill_constitution_speckit_constitution",
+      "label": "speckit-constitution Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_constitution_constitution_file",
+      "label": "Constitution File (.specify/memory/constitution.md)",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -364,10 +419,10 @@
       "contributor": null
     },
     {
-      "id": "navigation_state_type",
-      "label": "NavigationState Type",
+      "id": "skill_constitution_semantic_versioning",
+      "label": "Constitution Semantic Versioning Policy",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -375,10 +430,10 @@
       "contributor": null
     },
     {
-      "id": "meta_settings_type",
-      "label": "MetaSettings Type (user preferences)",
+      "id": "skill_constitution_sync_propagation",
+      "label": "Template Sync Propagation on Constitution Update",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -386,10 +441,21 @@
       "contributor": null
     },
     {
-      "id": "search_result_type",
-      "label": "SearchResult Type",
+      "id": "skill_git_commit_speckit_git_commit",
+      "label": "speckit-git-commit Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-git-commit/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_git_commit_git_config_yml",
+      "label": "git-config.yml Auto-Commit Configuration",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-git-commit/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -397,10 +463,21 @@
       "contributor": null
     },
     {
-      "id": "search_index_type",
-      "label": "SearchIndex Type (flat parallel arrays)",
+      "id": "skill_git_feature_speckit_git_feature",
+      "label": "speckit-git-feature Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_git_feature_sequential_numbering",
+      "label": "Sequential Branch Numbering (NNN-feature-name)",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -408,10 +485,10 @@
       "contributor": null
     },
     {
-      "id": "overlay_state_type",
-      "label": "OverlayState Discriminated Union (input/loading/error)",
+      "id": "skill_git_feature_timestamp_numbering",
+      "label": "Timestamp Branch Numbering (YYYYMMDD-HHMMSS-name)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -419,10 +496,43 @@
       "contributor": null
     },
     {
-      "id": "meta_directory_node",
-      "label": "Meta Directory (auto-injected reserved key)",
+      "id": "skill_git_initialize_speckit_git_initialize",
+      "label": "speckit-git-initialize Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-git-initialize/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_git_remote_speckit_git_remote",
+      "label": "speckit-git-remote Skill",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-git-remote/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_git_validate_speckit_git_validate",
+      "label": "speckit-git-validate Skill",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-git-validate/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_git_validate_branch_patterns",
+      "label": "Feature Branch Naming Patterns",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-git-validate/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -430,10 +540,21 @@
       "contributor": null
     },
     {
-      "id": "window_state_type",
-      "label": "WindowState Type (position/size)",
+      "id": "skill_implement_speckit_implement",
+      "label": "speckit-implement Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_implement_checklist_gate",
+      "label": "Pre-Implementation Checklist Gate",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -441,10 +562,10 @@
       "contributor": null
     },
     {
-      "id": "init_function",
-      "label": "init() Public Entry Point",
+      "id": "skill_implement_tdd_approach",
+      "label": "TDD Approach (Tests Before Code)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -452,10 +573,10 @@
       "contributor": null
     },
     {
-      "id": "shadow_dom_mounting",
-      "label": "Shadow DOM Mounting Strategy",
+      "id": "skill_implement_ignore_file_detection",
+      "label": "Ignore File Detection and Creation Logic",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -463,10 +584,21 @@
       "contributor": null
     },
     {
-      "id": "ufuzzy_decision",
-      "label": "uFuzzy Fuzzy Search Library Decision",
+      "id": "skill_plan_speckit_plan",
+      "label": "speckit-plan Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_plan_phase0_research",
+      "label": "Phase 0: Research and Unknowns Resolution",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -474,10 +606,10 @@
       "contributor": null
     },
     {
-      "id": "shortcut_registry_design",
-      "label": "Two-Tier Shortcut Registry Design",
+      "id": "skill_plan_phase1_design",
+      "label": "Phase 1: Design and Contracts Generation",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -485,10 +617,10 @@
       "contributor": null
     },
     {
-      "id": "vite_dual_build_decision",
-      "label": "Vite Dual Build Config Decision (ESM/CJS + IIFE)",
+      "id": "skill_plan_research_md",
+      "label": "research.md Output Artifact",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -496,10 +628,10 @@
       "contributor": null
     },
     {
-      "id": "localstorage_key_schema",
-      "label": "localStorage Key Schema ({prefix}.{category}.{setting})",
+      "id": "skill_plan_data_model_md",
+      "label": "data-model.md Output Artifact",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -507,10 +639,10 @@
       "contributor": null
     },
     {
-      "id": "aria_strategy",
-      "label": "ARIA Implementation Strategy (combobox/dialog/live region)",
+      "id": "skill_plan_contracts_dir",
+      "label": "contracts/ Directory Output Artifact",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -518,10 +650,21 @@
       "contributor": null
     },
     {
-      "id": "theme_implementation",
-      "label": "CSS Custom Properties Theme Implementation",
+      "id": "skill_specify_speckit_specify",
+      "label": "speckit-specify Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_specify_feature_json",
+      "label": "feature.json Feature Directory Persistence",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -529,10 +672,10 @@
       "contributor": null
     },
     {
-      "id": "focus_trap_design",
-      "label": "Custom Focus Trap Design (~25 lines)",
+      "id": "skill_specify_max_3_clarifications",
+      "label": "Maximum 3 NEEDS CLARIFICATION Markers Constraint",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -540,10 +683,10 @@
       "contributor": null
     },
     {
-      "id": "command_palette_mode",
-      "label": "Command Palette Mode (US1)",
+      "id": "skill_specify_quality_checklist",
+      "label": "Specification Quality Checklist (requirements.md)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -551,10 +694,10 @@
       "contributor": null
     },
     {
-      "id": "directory_view_mode",
-      "label": "Directory View Mode (US2)",
+      "id": "skill_specify_rationale_no_tech_stack",
+      "label": "Rationale: Spec Must Be Technology-Agnostic",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -562,10 +705,21 @@
       "contributor": null
     },
     {
-      "id": "mode_switching",
-      "label": "Mode Switching (palette <-> dir view, US3)",
+      "id": "skill_tasks_speckit_tasks",
+      "label": "speckit-tasks Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_tasks_checklist_format",
+      "label": "Task Checklist Format (T### [P] [US#] filepath)",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -573,10 +727,10 @@
       "contributor": null
     },
     {
-      "id": "floating_window_behavior",
-      "label": "Floating Window Drag/Resize/Persist (US4)",
+      "id": "skill_tasks_user_story_organization",
+      "label": "User Story Organization Principle for Tasks",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -584,10 +738,21 @@
       "contributor": null
     },
     {
-      "id": "keyboard_shortcuts_us5",
-      "label": "Global and Focus-Scoped Keyboard Shortcuts (US5)",
+      "id": "skill_taskstoissues_speckit_taskstoissues",
+      "label": "speckit-taskstoissues Skill",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": ".claude/skills/speckit-taskstoissues/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "github-spec-kit",
+      "contributor": null
+    },
+    {
+      "id": "skill_taskstoissues_github_mcp",
+      "label": "GitHub MCP Server Integration for Issue Creation",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-taskstoissues/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -595,74 +760,8 @@
       "contributor": null
     },
     {
-      "id": "node_types_activation",
-      "label": "Node Types and Activation (US6)",
-      "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "meta_dir_user_settings",
-      "label": "Meta Directory and User Settings (US7)",
-      "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "initialization_shadow_dom",
-      "label": "Initialization and Shadow DOM Isolation (US8)",
-      "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "userscript_iife_global",
-      "label": "Userscript IIFE Global (window.__ROVE__)",
-      "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "multi_instance_isolation",
-      "label": "Multi-Instance Isolation by keyPrefix",
-      "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "css_consumer_override_tokens",
-      "label": "CSS Consumer Override Tokens (--rove-*)",
-      "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "demo_index_html",
-      "label": "Demo Index HTML (Dual-instance live demo)",
+      "id": "demo_index_demo_page",
+      "label": "Rove Demo Page",
       "file_type": "document",
       "source_file": "demo/index.html",
       "source_location": null,
@@ -672,10 +771,10 @@
       "contributor": null
     },
     {
-      "id": "rove_functional_requirements",
-      "label": "Rove Functional Requirements (FR-001 to FR-022)",
+      "id": "demo_index_instance1",
+      "label": "Rove Instance 1 (demo)",
       "file_type": "document",
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
+      "source_file": "demo/index.html",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -683,10 +782,131 @@
       "contributor": null
     },
     {
-      "id": "speckit_workflow_gate",
-      "label": "Spec Kit Human Review Gate (approve/reject)",
+      "id": "demo_index_instance2",
+      "label": "Rove Instance 2 (demo2)",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_node_types",
+      "label": "Node Types (Action/Text/Textarea/Checkbox/Select/Virtual/Directory/Meta)",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_keyboard_shortcuts",
+      "label": "Keyboard Shortcuts (Toggle/Swap/Navigate/Accept/Dismiss)",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_shadow_dom",
+      "label": "Shadow DOM Zero Style Leakage Feature",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_multi_instance",
+      "label": "Multi-Instance Isolation Feature",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_fuzzy_search",
+      "label": "Fuzzy Search Across Leaf Nodes",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_localstorage_persistence",
+      "label": "localStorage Persistence",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "demo_index_main_ts",
+      "label": "demo/main.ts Entry Point",
+      "file_type": "document",
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_extensions_yml",
+      "label": "extensions.yml Hook Configuration File",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_check_prerequisites_script",
+      "label": "check-prerequisites.ps1 Script",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_speckit_sdd_workflow",
+      "label": "Specification-Driven Development (SDD) Workflow",
       "file_type": "document",
       "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_graceful_degradation",
+      "label": "Graceful Degradation Without Git",
+      "file_type": "document",
+      "source_file": ".claude/skills/speckit-git-initialize/SKILL.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
@@ -696,759 +916,919 @@
   ],
   "edges": [
     {
-      "source": "speckit_git_commit_cmd",
-      "target": "git_config_yml",
-      "relation": "references",
+      "source": "workflow_speckit_workflow",
+      "target": "skill_specify_speckit_specify",
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/commands/speckit.git.commit.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "speckit_git_feature_cmd",
-      "target": "git_config_yml",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/commands/speckit.git.feature.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "speckit_git_feature_cmd",
-      "target": "branch_numbering_strategy",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/commands/speckit.git.feature.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "speckit_git_validate_cmd",
-      "target": "branch_naming_convention",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/commands/speckit.git.validate.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "speckit_git_commit_cmd",
-      "target": "auto_commit_behavior",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/commands/speckit.git.commit.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "speckit_git_remote_cmd",
-      "target": "git_remote_detection",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/commands/speckit.git.remote.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "speckit_git_commit_cmd",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "speckit_git_feature_cmd",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "speckit_git_initialize_cmd",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "speckit_git_remote_cmd",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "speckit_git_validate_cmd",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "git_config_yml",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "git_extension_readme",
-      "target": "graceful_degradation_no_git",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "constitution_memory",
-      "target": "constitution_template",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/memory/constitution.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "spec_template",
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 0.85
-    },
-    {
-      "source": "rove_plan",
-      "target": "plan_template",
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
-      "source_location": null,
-      "weight": 0.85
-    },
-    {
-      "source": "rove_tasks",
-      "target": "tasks_template",
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
-      "source_location": null,
-      "weight": 0.85
-    },
-    {
-      "source": "rove_plan",
-      "target": "rove_spec",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_plan",
-      "target": "rove_research",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_plan",
-      "target": "rove_data_model",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_plan",
-      "target": "rove_api_contract",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_tasks",
-      "target": "rove_spec",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_tasks",
-      "target": "rove_plan",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_tasks",
-      "target": "rove_data_model",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_tasks",
-      "target": "rove_api_contract",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_tasks",
-      "target": "rove_research",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/tasks.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_api_contract",
-      "target": "consumer_config_type",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_api_contract",
-      "target": "component_instance_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_api_contract",
-      "target": "init_function",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_api_contract",
-      "target": "userscript_iife_global",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_api_contract",
-      "target": "multi_instance_isolation",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_api_contract",
-      "target": "css_consumer_override_tokens",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "consumer_config_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "component_instance_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "directory_node_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "directory_item_union",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "input_item_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "virtual_item_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "app_state_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "meta_directory_node",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "search_index_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_data_model",
-      "target": "overlay_state_type",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "directory_item_union",
-      "target": "input_item_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "directory_item_union",
-      "target": "virtual_item_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "app_state_type",
-      "target": "palette_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "app_state_type",
-      "target": "navigation_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "app_state_type",
-      "target": "meta_settings_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "app_state_type",
-      "target": "window_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "ufuzzy_decision",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "shadow_dom_mounting",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "shortcut_registry_design",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "vite_dual_build_decision",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "localstorage_key_schema",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "aria_strategy",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "theme_implementation",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_research",
-      "target": "focus_trap_design",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "ufuzzy_decision",
-      "target": "search_index_type",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 0.9
-    },
-    {
-      "source": "shadow_dom_mounting",
-      "target": "initialization_shadow_dom",
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "ufuzzy_decision",
-      "target": "command_palette_mode",
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.88,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 0.88
-    },
-    {
-      "source": "vite_dual_build_decision",
-      "target": "userscript_iife_global",
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "localstorage_key_schema",
-      "target": "meta_settings_type",
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 0.85
-    },
-    {
-      "source": "shortcut_registry_design",
-      "target": "keyboard_shortcuts_us5",
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 0.9
-    },
-    {
-      "source": "focus_trap_design",
-      "target": "aria_strategy",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 0.8
-    },
-    {
-      "source": "rove_spec",
-      "target": "command_palette_mode",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "directory_view_mode",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "mode_switching",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "floating_window_behavior",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "keyboard_shortcuts_us5",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "node_types_activation",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "meta_dir_user_settings",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "initialization_shadow_dom",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "rove_spec",
-      "target": "rove_functional_requirements",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "speckit_workflow_yml",
-      "target": "rove_spec",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
       "source_file": ".specify/workflows/speckit/workflow.yml",
-      "source_location": null,
-      "weight": 0.75
+      "source_location": "step: specify",
+      "weight": 1.0
     },
     {
-      "source": "speckit_workflow_yml",
-      "target": "speckit_workflow_gate",
+      "source": "workflow_speckit_workflow",
+      "target": "skill_plan_speckit_plan",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": "step: plan",
+      "weight": 1.0
+    },
+    {
+      "source": "workflow_speckit_workflow",
+      "target": "skill_tasks_speckit_tasks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": "step: tasks",
+      "weight": 1.0
+    },
+    {
+      "source": "workflow_speckit_workflow",
+      "target": "skill_implement_speckit_implement",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": "step: implement",
+      "weight": 1.0
+    },
+    {
+      "source": "workflow_speckit_workflow",
+      "target": "workflow_review_gate",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": "review-spec and review-plan steps",
+      "weight": 1.0
+    },
+    {
+      "source": "workflow_speckit_workflow",
+      "target": "concept_speckit_sdd_workflow",
       "relation": "implements",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".specify/workflows/speckit/workflow.yml",
-      "source_location": null,
+      "source_location": "description",
       "weight": 1.0
     },
     {
-      "source": "demo_index_html",
-      "target": "multi_instance_isolation",
+      "source": "workflow_speckit_workflow",
+      "target": "workflow_integration_input",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": "inputs.integration",
+      "weight": 1.0
+    },
+    {
+      "source": "workflow_speckit_workflow",
+      "target": "workflow_scope_input",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/workflows/speckit/workflow.yml",
+      "source_location": "inputs.scope",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_specify_speckit_specify",
+      "target": "spec_template_spec_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": "step 4 and 6",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_specify_speckit_specify",
+      "target": "skill_specify_feature_json",
       "relation": "implements",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "demo/index.html",
-      "source_location": null,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": "step 3",
       "weight": 1.0
     },
     {
-      "source": "demo_index_html",
-      "target": "rove_spec",
+      "source": "skill_specify_speckit_specify",
+      "target": "skill_specify_quality_checklist",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": "step 7a",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_specify_speckit_specify",
+      "target": "skill_specify_max_3_clarifications",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": "step 5.3",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_specify_speckit_specify",
+      "target": "skill_specify_rationale_no_tech_stack",
       "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": "Quick Guidelines",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_specify_speckit_specify",
+      "target": "skill_git_feature_speckit_git_feature",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": "step 2 before_specify hook",
+      "weight": 0.9
+    },
+    {
+      "source": "skill_specify_rationale_no_tech_stack",
+      "target": "spec_template_spec_template",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".claude/skills/speckit-specify/SKILL.md",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "skill_plan_speckit_plan",
+      "target": "plan_template_plan_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_speckit_plan",
+      "target": "skill_plan_phase0_research",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "Phases Phase 0",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_speckit_plan",
+      "target": "skill_plan_phase1_design",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "Phases Phase 1",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_phase0_research",
+      "target": "skill_plan_research_md",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "Phase 0 output",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_phase1_design",
+      "target": "skill_plan_data_model_md",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "Phase 1 step 1",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_phase1_design",
+      "target": "skill_plan_contracts_dir",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "Phase 1 step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_speckit_plan",
+      "target": "plan_template_constitution_check",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "step 3",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_plan_speckit_plan",
+      "target": "skill_constitution_constitution_file",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-plan/SKILL.md",
+      "source_location": "step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_tasks_speckit_tasks",
+      "target": "tasks_template_tasks_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": "step 4",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_tasks_speckit_tasks",
+      "target": "skill_tasks_checklist_format",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": "Task Generation Rules Checklist Format",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_tasks_speckit_tasks",
+      "target": "skill_tasks_user_story_organization",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": "CRITICAL note",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_tasks_speckit_tasks",
+      "target": "skill_plan_data_model_md",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": "step 2 Optional",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_tasks_speckit_tasks",
+      "target": "skill_plan_contracts_dir",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": "step 2 Optional",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_tasks_speckit_tasks",
+      "target": "spec_template_user_stories",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-tasks/SKILL.md",
+      "source_location": "step 3",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_implement_speckit_implement",
+      "target": "skill_implement_checklist_gate",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
+      "source_location": "step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_implement_speckit_implement",
+      "target": "skill_implement_tdd_approach",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
+      "source_location": "step 6",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_implement_speckit_implement",
+      "target": "skill_implement_ignore_file_detection",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
+      "source_location": "step 4",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_implement_speckit_implement",
+      "target": "tasks_template_tasks_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-implement/SKILL.md",
+      "source_location": "step 3",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_speckit_analyze",
+      "target": "skill_analyze_constitution_authority",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "Operating Constraints",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_speckit_analyze",
+      "target": "skill_analyze_coverage_gap_detection",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "Detection Pass E",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_speckit_analyze",
+      "target": "skill_analyze_severity_levels",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "step 5",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_speckit_analyze",
+      "target": "skill_analyze_extension_hooks",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "Pre Post-Execution Checks",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_speckit_analyze",
+      "target": "concept_check_prerequisites_script",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "step 1",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_speckit_analyze",
+      "target": "spec_template_functional_requirements",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_analyze_constitution_authority",
+      "target": "skill_constitution_constitution_file",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "step 2 From constitution",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_checklist_speckit_checklist",
+      "target": "skill_checklist_unit_tests_for_english",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
+      "source_location": "Checklist Purpose",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_checklist_speckit_checklist",
+      "target": "skill_checklist_requirement_quality_dimensions",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
+      "source_location": "Category Structure",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_checklist_speckit_checklist",
+      "target": "skill_checklist_chk_id_format",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
+      "source_location": "step 5",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_checklist_unit_tests_for_english",
+      "target": "skill_specify_quality_checklist",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.82,
+      "source_file": ".claude/skills/speckit-checklist/SKILL.md",
+      "source_location": null,
+      "weight": 0.82
+    },
+    {
+      "source": "skill_clarify_speckit_clarify",
+      "target": "skill_clarify_ambiguity_taxonomy",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": "step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_clarify_speckit_clarify",
+      "target": "skill_clarify_max_5_questions",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": "step 3",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_clarify_speckit_clarify",
+      "target": "skill_clarify_sequential_questioning",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": "step 4",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_clarify_speckit_clarify",
+      "target": "skill_clarify_incremental_spec_update",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": "step 5",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_clarify_speckit_clarify",
+      "target": "spec_template_spec_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": "step 2 Load spec file",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_constitution_speckit_constitution",
+      "target": "skill_constitution_constitution_file",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": "step 1 and 7",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_constitution_speckit_constitution",
+      "target": "skill_constitution_semantic_versioning",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": "step 2",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_constitution_speckit_constitution",
+      "target": "skill_constitution_sync_propagation",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": "step 4",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_constitution_sync_propagation",
+      "target": "plan_template_plan_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": "step 4 Read plan-template",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_constitution_sync_propagation",
+      "target": "spec_template_spec_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": "step 4 Read spec-template",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_constitution_sync_propagation",
+      "target": "tasks_template_tasks_template",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md",
+      "source_location": "step 4 Read tasks-template",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_commit_speckit_git_commit",
+      "target": "skill_git_commit_git_config_yml",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-commit/SKILL.md",
+      "source_location": "Configuration section",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_commit_speckit_git_commit",
+      "target": "concept_extensions_yml",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".claude/skills/speckit-git-commit/SKILL.md",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "skill_git_feature_speckit_git_feature",
+      "target": "skill_git_feature_sequential_numbering",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
+      "source_location": "Branch Numbering sequential",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_feature_speckit_git_feature",
+      "target": "skill_git_feature_timestamp_numbering",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
+      "source_location": "Branch Numbering timestamp",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_feature_sequential_numbering",
+      "target": "skill_git_validate_branch_patterns",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "skill_git_feature_timestamp_numbering",
+      "target": "skill_git_validate_branch_patterns",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "skill_git_validate_speckit_git_validate",
+      "target": "skill_git_validate_branch_patterns",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-validate/SKILL.md",
+      "source_location": "Validation Rules",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_remote_speckit_git_remote",
+      "target": "skill_taskstoissues_github_mcp",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".claude/skills/speckit-git-remote/SKILL.md",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "skill_taskstoissues_speckit_taskstoissues",
+      "target": "skill_taskstoissues_github_mcp",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-taskstoissues/SKILL.md",
+      "source_location": "step 4",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_taskstoissues_speckit_taskstoissues",
+      "target": "skill_git_remote_speckit_git_remote",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-taskstoissues/SKILL.md",
+      "source_location": "step 3",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_taskstoissues_speckit_taskstoissues",
+      "target": "concept_check_prerequisites_script",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-taskstoissues/SKILL.md",
+      "source_location": "step 1",
+      "weight": 1.0
+    },
+    {
+      "source": "plan_template_plan_template",
+      "target": "plan_template_technical_context",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/plan-template.md",
+      "source_location": "Technical Context section",
+      "weight": 1.0
+    },
+    {
+      "source": "plan_template_plan_template",
+      "target": "plan_template_constitution_check",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/plan-template.md",
+      "source_location": "Constitution Check section",
+      "weight": 1.0
+    },
+    {
+      "source": "plan_template_plan_template",
+      "target": "plan_template_project_structure",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/plan-template.md",
+      "source_location": "Project Structure section",
+      "weight": 1.0
+    },
+    {
+      "source": "plan_template_plan_template",
+      "target": "plan_template_complexity_tracking",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/plan-template.md",
+      "source_location": "Complexity Tracking section",
+      "weight": 1.0
+    },
+    {
+      "source": "plan_template_constitution_check",
+      "target": "skill_constitution_constitution_file",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": ".specify/templates/plan-template.md",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "spec_template_spec_template",
+      "target": "spec_template_user_stories",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": "User Scenarios section",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_spec_template",
+      "target": "spec_template_functional_requirements",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": "Requirements section",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_spec_template",
+      "target": "spec_template_success_criteria",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": "Success Criteria section",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_spec_template",
+      "target": "spec_template_acceptance_scenarios",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": "Acceptance Scenarios",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_spec_template",
+      "target": "spec_template_edge_cases",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/spec-template.md",
+      "source_location": "Edge Cases subsection",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_template_tasks_template",
+      "target": "tasks_template_phase_setup",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": "Phase 1",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_template_tasks_template",
+      "target": "tasks_template_phase_foundational",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": "Phase 2",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_template_tasks_template",
+      "target": "tasks_template_phase_user_story",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": "Phase 3 to 5",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_template_tasks_template",
+      "target": "tasks_template_phase_polish",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": "Phase N",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_template_tasks_template",
+      "target": "tasks_template_parallel_marker",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": "Format section",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_template_tasks_template",
+      "target": "tasks_template_mvp_strategy",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".specify/templates/tasks-template.md",
+      "source_location": "Implementation Strategy section",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_instance1",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Instance 1 card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_instance2",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Instance 2 card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_node_types",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Node types card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_keyboard_shortcuts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Instance 1 shortcut-list",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_shadow_dom",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Features card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_multi_instance",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Features card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_fuzzy_search",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Features card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_localstorage_persistence",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "Features card",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_demo_page",
+      "target": "demo_index_main_ts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "demo/index.html",
+      "source_location": "script type module",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_instance1",
+      "target": "demo_index_multi_instance",
+      "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "demo/index.html",
@@ -1456,192 +1836,140 @@
       "weight": 0.85
     },
     {
-      "source": "meta_dir_user_settings",
-      "target": "meta_directory_node",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "meta_directory_node",
-      "target": "meta_settings_type",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "node_types_activation",
-      "target": "directory_item_union",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "node_types_activation",
-      "target": "overlay_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 0.9
-    },
-    {
-      "source": "floating_window_behavior",
-      "target": "window_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 0.9
-    },
-    {
-      "source": "floating_window_behavior",
-      "target": "localstorage_key_schema",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 0.8
-    },
-    {
-      "source": "command_palette_mode",
-      "target": "palette_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 0.9
-    },
-    {
-      "source": "directory_view_mode",
-      "target": "navigation_state_type",
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": ".specify/specs/001-dirnav-ui-component/spec.md",
-      "source_location": null,
-      "weight": 0.9
-    },
-    {
-      "source": "branch_numbering_strategy",
-      "target": "branch_naming_convention",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": ".specify/extensions/git/commands/speckit.git.feature.md",
-      "source_location": null,
-      "weight": 0.75
-    },
-    {
-      "source": "graceful_degradation_no_git",
-      "target": "initialization_shadow_dom",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.65,
-      "source_file": ".specify/extensions/git/README.md",
-      "source_location": null,
-      "weight": 0.65
-    },
-    {
-      "source": "constitution_memory",
-      "target": "rove_plan",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "css_consumer_override_tokens",
-      "target": "theme_implementation",
+      "source": "demo_index_instance2",
+      "target": "demo_index_multi_instance",
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
-      "source_file": ".specify/specs/001-dirnav-ui-component/contracts/api.md",
-      "source_location": null,
+      "source_file": "demo/index.html",
+      "source_location": "Isolated state separate localStorage namespace",
       "weight": 0.85
     },
     {
-      "source": "aria_strategy",
-      "target": "command_palette_mode",
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
-      "source_location": null,
-      "weight": 0.8
+      "source": "concept_extensions_yml",
+      "target": "skill_analyze_extension_hooks",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-analyze/SKILL.md",
+      "source_location": "Pre Post-Execution Checks",
+      "weight": 1.0
     },
     {
-      "source": "aria_strategy",
-      "target": "directory_view_mode",
-      "relation": "rationale_for",
+      "source": "skill_clarify_speckit_clarify",
+      "target": "skill_specify_speckit_specify",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
+      "source_location": "Note expected to run BEFORE speckit-plan",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_clarify_max_5_questions",
+      "target": "skill_specify_max_3_clarifications",
+      "relation": "semantically_similar_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": ".specify/specs/001-dirnav-ui-component/research.md",
+      "confidence_score": 0.78,
+      "source_file": ".claude/skills/speckit-clarify/SKILL.md",
       "source_location": null,
-      "weight": 0.8
+      "weight": 0.78
+    },
+    {
+      "source": "skill_git_initialize_speckit_git_initialize",
+      "target": "concept_graceful_degradation",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-initialize/SKILL.md",
+      "source_location": "Graceful Degradation section",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_feature_speckit_git_feature",
+      "target": "concept_graceful_degradation",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-feature/SKILL.md",
+      "source_location": "Graceful Degradation section",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_remote_speckit_git_remote",
+      "target": "concept_graceful_degradation",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-remote/SKILL.md",
+      "source_location": "Graceful Degradation section",
+      "weight": 1.0
+    },
+    {
+      "source": "skill_git_validate_speckit_git_validate",
+      "target": "concept_graceful_degradation",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/speckit-git-validate/SKILL.md",
+      "source_location": "Graceful Degradation section",
+      "weight": 1.0
+    },
+    {
+      "source": "demo_index_shadow_dom",
+      "target": "demo_index_multi_instance",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.72,
+      "source_file": "demo/index.html",
+      "source_location": null,
+      "weight": 0.72
     }
   ],
   "hyperedges": [
     {
-      "id": "rove_spec_design_artifacts",
-      "label": "Rove Feature Design Artifact Suite (spec + plan + data-model + research + tasks + api)",
+      "id": "speckit_sdd_pipeline",
+      "label": "Spec Kit Specification-Driven Development Pipeline",
       "nodes": [
-        "rove_spec",
-        "rove_plan",
-        "rove_data_model",
-        "rove_research",
-        "rove_tasks",
-        "rove_api_contract"
+        "skill_specify_speckit_specify",
+        "skill_clarify_speckit_clarify",
+        "skill_plan_speckit_plan",
+        "skill_tasks_speckit_tasks",
+        "skill_analyze_speckit_analyze",
+        "skill_implement_speckit_implement"
       ],
       "relation": "form",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/plan.md"
+      "source_file": ".specify/workflows/speckit/workflow.yml"
     },
     {
-      "id": "git_extension_command_set",
-      "label": "Git Extension Command Set (initialize + feature + validate + remote + commit)",
+      "id": "speckit_git_subsystem",
+      "label": "Spec Kit Git Integration Subsystem",
       "nodes": [
-        "speckit_git_initialize_cmd",
-        "speckit_git_feature_cmd",
-        "speckit_git_validate_cmd",
-        "speckit_git_remote_cmd",
-        "speckit_git_commit_cmd"
+        "skill_git_initialize_speckit_git_initialize",
+        "skill_git_feature_speckit_git_feature",
+        "skill_git_remote_speckit_git_remote",
+        "skill_git_validate_speckit_git_validate",
+        "skill_git_commit_speckit_git_commit"
       ],
       "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/extensions/git/README.md"
+      "confidence": "INFERRED",
+      "confidence_score": 0.92,
+      "source_file": ".claude/skills/speckit-git-commit/SKILL.md"
     },
     {
-      "id": "rove_state_slices",
-      "label": "Rove AppState Slices (palette + navigation + window + meta)",
+      "id": "speckit_template_triad",
+      "label": "Spec Kit Core Template Triad (spec/plan/tasks)",
       "nodes": [
-        "app_state_type",
-        "palette_state_type",
-        "navigation_state_type",
-        "window_state_type",
-        "meta_settings_type"
+        "spec_template_spec_template",
+        "plan_template_plan_template",
+        "tasks_template_tasks_template"
       ],
-      "relation": "form",
+      "relation": "implement",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".specify/specs/001-dirnav-ui-component/data-model.md"
+      "confidence_score": 0.97,
+      "source_file": ".claude/skills/speckit-constitution/SKILL.md"
     }
   ],
   "input_tokens": 0,

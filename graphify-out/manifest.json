@@ -1,9 +1,4 @@
 {
-  "C:\\Users\\mhixon\\repos\\Rove\\.graphify_detect.json": {
-    "mtime": 1780009236.729781,
-    "ast_hash": "687d7cf59db6787a7cb360a6fff2ff17",
-    "semantic_hash": "687d7cf59db6787a7cb360a6fff2ff17"
-  },
   "C:\\Users\\mhixon\\repos\\Rove\\package.json": {
     "mtime": 1778728677.8647516,
     "ast_hash": "e73b9905bf4883af2904719f7a948f33",
@@ -30,9 +25,9 @@
     "semantic_hash": "0e45c0eef980b54a36c77a98c80f0a41"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\.claude\\settings.local.json": {
-    "mtime": 1778725404.2576187,
-    "ast_hash": "e103c9167f50791f0ded30d073266b54",
-    "semantic_hash": "e103c9167f50791f0ded30d073266b54"
+    "mtime": 1780029643.342914,
+    "ast_hash": "20e3093cf111d5a620b8bee29aed932d",
+    "semantic_hash": "20e3093cf111d5a620b8bee29aed932d"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\.specify\\feature.json": {
     "mtime": 1778719518.991864,
@@ -130,9 +125,9 @@
     "semantic_hash": "32e9d66199b680e5ba39ea1ad85c6e07"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\demo\\main.ts": {
-    "mtime": 1778777497.7770596,
-    "ast_hash": "7138dd3b61f47e51c8443b1bf1d57ed8",
-    "semantic_hash": "7138dd3b61f47e51c8443b1bf1d57ed8"
+    "mtime": 1780029497.9436083,
+    "ast_hash": "c88c8f2550a98ecc2203056034f9ec89",
+    "semantic_hash": "c88c8f2550a98ecc2203056034f9ec89"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\debug.ts": {
     "mtime": 1778777427.5361345,
@@ -140,14 +135,14 @@
     "semantic_hash": "ad5df6e620f924e76b77b1ab20842930"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\index.ts": {
-    "mtime": 1779985981.8923872,
-    "ast_hash": "e34471c29d60dcfc618f952640d06aef",
-    "semantic_hash": "e34471c29d60dcfc618f952640d06aef"
+    "mtime": 1780029474.332934,
+    "ast_hash": "979bc4b488112c3d66db2c9337588d34",
+    "semantic_hash": "979bc4b488112c3d66db2c9337588d34"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\types.ts": {
-    "mtime": 1779227900.9331517,
-    "ast_hash": "bb211cf697af52ffdfac1d5322418fde",
-    "semantic_hash": "bb211cf697af52ffdfac1d5322418fde"
+    "mtime": 1780029122.011938,
+    "ast_hash": "006e34b6c8333913970c62cacbeca90a",
+    "semantic_hash": "006e34b6c8333913970c62cacbeca90a"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\Breadcrumbs.tsx": {
     "mtime": 1778783599.8843596,
@@ -155,19 +150,19 @@
     "semantic_hash": "19fdd57c5953ea5cec564283a01361b0"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\DirView.tsx": {
-    "mtime": 1779231870.0751536,
-    "ast_hash": "9ac9f78078f12fd78b7944c17041065e",
-    "semantic_hash": "9ac9f78078f12fd78b7944c17041065e"
+    "mtime": 1780029665.627307,
+    "ast_hash": "91a05260b880c18560d20e9c451009c4",
+    "semantic_hash": "91a05260b880c18560d20e9c451009c4"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\ModalSheet.tsx": {
-    "mtime": 1779207622.602979,
-    "ast_hash": "67d71c46205bdb830970eb8f051c6f74",
-    "semantic_hash": "67d71c46205bdb830970eb8f051c6f74"
+    "mtime": 1780029447.299121,
+    "ast_hash": "331b8a37549708b0464c90ddb8de327b",
+    "semantic_hash": "331b8a37549708b0464c90ddb8de327b"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\Palette.tsx": {
-    "mtime": 1779985044.8456428,
-    "ast_hash": "53d9c36475f929dc9a39b50c90f3a4d0",
-    "semantic_hash": "53d9c36475f929dc9a39b50c90f3a4d0"
+    "mtime": 1780029257.462873,
+    "ast_hash": "1ada2e28f6fd278f5281bb709b213547",
+    "semantic_hash": "1ada2e28f6fd278f5281bb709b213547"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\PaletteResult.tsx": {
     "mtime": 1778726190.081474,
@@ -190,9 +185,9 @@
     "semantic_hash": "f4005408ce5e57b2c8566037d4d39367"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\search\\fuzzy.ts": {
-    "mtime": 1778725841.0996275,
-    "ast_hash": "e51d026592c3701e3aecea523d3cb57f",
-    "semantic_hash": "e51d026592c3701e3aecea523d3cb57f"
+    "mtime": 1780029154.1790285,
+    "ast_hash": "d97abf0af0177316ffca21c6f7463422",
+    "semantic_hash": "d97abf0af0177316ffca21c6f7463422"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\src\\shortcuts\\registry.ts": {
     "mtime": 1778730242.8970146,
@@ -288,21 +283,6 @@
     "mtime": 1778710949.7997658,
     "ast_hash": "428b2cf65c35bf453862534f7c4ea8dd",
     "semantic_hash": "428b2cf65c35bf453862534f7c4ea8dd"
-  },
-  "C:\\Users\\mhixon\\repos\\Rove\\.kiro\\specs\\dirnav-ui-component\\design.md": {
-    "mtime": 1755814126.8473113,
-    "ast_hash": "c37bfc4eecf38af35515cf55dce5458e",
-    "semantic_hash": "c37bfc4eecf38af35515cf55dce5458e"
-  },
-  "C:\\Users\\mhixon\\repos\\Rove\\.kiro\\specs\\dirnav-ui-component\\requirements.md": {
-    "mtime": 1755814126.8507516,
-    "ast_hash": "dd38d2d5c1d4ba64a949629ca8c3ec0a",
-    "semantic_hash": "dd38d2d5c1d4ba64a949629ca8c3ec0a"
-  },
-  "C:\\Users\\mhixon\\repos\\Rove\\.kiro\\specs\\dirnav-ui-component\\tasks.md": {
-    "mtime": 1755887357.0672712,
-    "ast_hash": "fdae4caf6a220fc8e3a6a6508cf97510",
-    "semantic_hash": "fdae4caf6a220fc8e3a6a6508cf97510"
   },
   "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions.yml": {
     "mtime": 1778710950.2920485,
@@ -423,5 +403,15 @@
     "mtime": 1778777508.129536,
     "ast_hash": "e305d571d5e4046cf48576ba92669524",
     "semantic_hash": "e305d571d5e4046cf48576ba92669524"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.graphify_incremental.json": {
+    "mtime": 1780019929.118142,
+    "ast_hash": "5b41109b4335a487b6140f92f6aaddf5",
+    "semantic_hash": "5b41109b4335a487b6140f92f6aaddf5"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.graphify_uncached.txt": {
+    "mtime": 1780020251.3561316,
+    "ast_hash": "742f3b0a02deeafde57961bc06f6835f",
+    "semantic_hash": "742f3b0a02deeafde57961bc06f6835f"
   }
 }
