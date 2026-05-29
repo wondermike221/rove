@@ -30,12 +30,24 @@ export type DirectoryItem =
   | DirectoryNodeItem
   | ActionItem
   | InputItem
-  | VirtualItem;
+  | SelectItem;
 
 export interface DirectoryNodeItem {
   type: 'directory';
   label: string;
-  children: DirectoryNode;
+  /**
+   * Static children. Absent on a lazy directory before its first load.
+   * After `load()` resolves, the library caches the result here so
+   * subsequent activations navigate directly without re-loading.
+   */
+  children?: DirectoryNode;
+  /**
+   * Optional async loader. When present and `children` is absent, the node
+   * acts as a lazy directory: the first activation triggers the load, the
+   * result is cached into `children`, and the user is navigated in.
+   * Subsequent activations behave like a normal static directory.
+   */
+  load?: () => Promise<DirectoryNode>;
 }
 
 export interface ActionItem {
@@ -56,21 +68,21 @@ export interface InputItem {
   onChange?: (value: string | boolean | string[]) => void;
 }
 
-export interface VirtualItem {
-  type: 'virtual';
+/**
+ * A one-shot selection widget. Presents a list of string options and fires
+ * `onSelect` when the user picks one. Options can be static or async-loaded.
+ *
+ * In DirView: shown as an ephemeral navigation list — user picks, nav returns.
+ * In palette: shown as an inline ephemeral pick list.
+ */
+export interface SelectItem {
+  type: 'select';
   label: string;
-  /**
-   * persistent (default): loaded subtree is navigated into and cached in the
-   * search index — user can return to it freely.
-   *
-   * ephemeral: loaded subtree is presented as a one-shot selection list.
-   * After the user picks an item, onSelect fires and the nav returns to where
-   * it was. The subtree is never added to the search index.
-   */
-  mode?: 'persistent' | 'ephemeral';
-  load: () => Promise<DirectoryNode>;
-  /** Called when an item is picked in ephemeral mode. */
-  onSelect?: (key: string, item: DirectoryItem) => void;
+  /** Static option list. Mutually exclusive with `load`. */
+  options?: string[];
+  /** Async option loader. Called every time the item is activated. */
+  load?: () => Promise<string[]>;
+  onSelect: (value: string) => void;
 }
 
 // ─── Internal state types ──────────────────────────────────────────────────
@@ -111,7 +123,7 @@ export interface NavEntry {
 export interface NavigationState {
   /**
    * Breadcrumb stack: history[0] is always the root, the last entry is the
-   * currently-visible level. Using a stack lets virtual/ephemeral subtrees
+   * currently-visible level. Using a stack lets lazy/ephemeral subtrees
    * navigate correctly without re-walking the static tree.
    */
   history: NavEntry[];
@@ -144,5 +156,5 @@ export interface SearchIndex {
 
 export type OverlayState =
   | { type: 'input'; item: InputItem; nodeKey: string; nodePath: string[] }
-  | { type: 'loading'; item: VirtualItem; nodeKey: string; cancel: () => void }
+  | { type: 'loading'; label: string; cancel: () => void }
   | { type: 'error'; message: string };

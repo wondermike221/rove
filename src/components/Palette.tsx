@@ -135,29 +135,71 @@ export default function Palette(props: PaletteProps) {
         selectedIndex: 0,
         overlay: { type: 'input', item: itemWithStored, nodeKey: result.key, nodePath: result.path },
       }));
-    } else if (item.type === 'virtual') {
-      let cancelled = false;
-      props.set('palette', 'overlay', { type: 'loading', item, nodeKey: result.key, cancel: () => { cancelled = true; } });
-
-      item.load().then((subtree: DirectoryNode) => {
-        if (cancelled) return;
-        props.set('palette', 'overlay', null);
-
-        if (item.mode === 'ephemeral') {
-          const options: EphemeralOption[] = Object.entries(subtree).map(([key, it]) => ({ key, item: it }));
-          setPaletteEphemeral({ options, label: item.label, selectedIndex: 0, onSelect: item.onSelect });
-          props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
-        } else {
+    } else if (item.type === 'directory' && item.load) {
+      // Lazy directory: load children, cache, inject as results so user sees them immediately
+      const lazyItem = item;
+      if (lazyItem.children) {
+        // Already loaded — show children directly as results
+        const newIndex = appendToIndex(props.getIndex(), lazyItem.children, result.path, result.pathLabels);
+        props.setIndex(newIndex);
+        const childResults: SearchResult[] = Object.entries(lazyItem.children).map(([key, child]) => ({
+          item: child,
+          key,
+          path: [...result.path, key],
+          pathLabels: [...result.pathLabels, lazyItem.label],
+          score: 0,
+          ranges: [],
+        }));
+        props.set('palette', (p) => ({ ...p, query: '', results: childResults, selectedIndex: 0 }));
+        requestAnimationFrame(() => inputRef?.focus());
+      } else {
+        const loader = lazyItem.load!;
+        let cancelled = false;
+        props.set('palette', 'overlay', { type: 'loading', label: lazyItem.label, cancel: () => { cancelled = true; } });
+        loader().then((subtree: DirectoryNode) => {
+          if (cancelled) return;
+          lazyItem.children = subtree; // cache for future activations
+          props.set('palette', 'overlay', null);
           const newIndex = appendToIndex(props.getIndex(), subtree, result.path, result.pathLabels);
           props.setIndex(newIndex);
-          // Clear query so filter effect re-runs against the expanded index.
-          // Index is not reactive so we can't rely on the existing effect.
-          props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
+          const childResults: SearchResult[] = Object.entries(subtree).map(([key, child]) => ({
+            item: child,
+            key,
+            path: [...result.path, key],
+            pathLabels: [...result.pathLabels, lazyItem.label],
+            score: 0,
+            ranges: [],
+          }));
+          props.set('palette', (p) => ({ ...p, query: '', results: childResults, selectedIndex: 0 }));
           requestAnimationFrame(() => inputRef?.focus());
-        }
-      }).catch((err: unknown) => {
-        props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });
-      });
+        }).catch((err: unknown) => {
+          props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });
+        });
+      }
+    } else if (item.type === 'select') {
+      const selectItem = item;
+      const buildEphemeral = (options: string[]) => {
+        const ephOptions: EphemeralOption[] = options.map((opt) => ({
+          key: opt,
+          item: { type: 'action' as const, label: opt, action: () => { selectItem.onSelect(opt); } },
+        }));
+        setPaletteEphemeral({ options: ephOptions, label: selectItem.label, selectedIndex: 0 });
+        props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
+      };
+
+      if (selectItem.options) {
+        buildEphemeral(selectItem.options);
+      } else if (selectItem.load) {
+        let cancelled = false;
+        props.set('palette', 'overlay', { type: 'loading', label: selectItem.label, cancel: () => { cancelled = true; } });
+        selectItem.load().then((options: string[]) => {
+          if (cancelled) return;
+          props.set('palette', 'overlay', null);
+          buildEphemeral(options);
+        }).catch((err: unknown) => {
+          props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });
+        });
+      }
     }
   }
 

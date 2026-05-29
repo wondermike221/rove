@@ -1,6 +1,6 @@
 import { createEffect, createMemo, createSignal, For, Match, onCleanup, onMount, Show, Switch } from 'solid-js';
 import { debugMode } from '../debug';
-import type { AppState, DirectoryItem, DirectoryNode, InputItem, NavEntry, VirtualItem } from '../types';
+import type { AppState, DirectoryItem, DirectoryNode, InputItem, NavEntry, SelectItem } from '../types';
 import type { SetStoreFunction } from 'solid-js/store';
 import { read, write } from '../storage/persist';
 import TitleBar from './TitleBar';
@@ -211,14 +211,18 @@ export default function DirView(props: DirViewProps) {
     const ctx = ephemeralCtx();
 
     if (item.type === 'directory') {
-      navigateInto(key, item.children, item.label);
+      if (item.children) {
+        navigateInto(key, item.children, item.label);
+      } else if (item.load) {
+        handleLazyDirectoryActivation(key, item.label, item as { load: () => Promise<DirectoryNode>; children?: DirectoryNode });
+      }
     } else if (item.type === 'action') {
       item.action();
       if (ctx) { ctx.onSelect?.(key, item); exitEphemeral(ctx); }
     } else if (item.type === 'input') {
       activateInputItem(key, item);
-    } else if (item.type === 'virtual') {
-      handleVirtualActivation(key, item);
+    } else if (item.type === 'select') {
+      handleSelectActivation(key, item);
     }
   }
 
@@ -266,23 +270,50 @@ export default function DirView(props: DirViewProps) {
     }
   }
 
-  function handleVirtualActivation(key: string, item: VirtualItem) {
+  function handleLazyDirectoryActivation(key: string, label: string, item: { load: () => Promise<DirectoryNode>; children?: DirectoryNode }) {
     let cancelled = false;
-    props.set('palette', 'overlay', { type: 'loading', item, nodeKey: key, cancel: () => { cancelled = true; } });
+    props.set('palette', 'overlay', { type: 'loading', label, cancel: () => { cancelled = true; } });
 
     item.load().then((subtree: DirectoryNode) => {
       if (cancelled) return;
+      item.children = subtree; // cache so subsequent activations skip the load
       props.set('palette', 'overlay', null);
-      if (item.mode === 'ephemeral') {
-        const returnHistoryLength = history().length;
-        navigateInto(key, subtree, item.label);
-        setEphemeralCtx({ returnHistoryLength, onSelect: item.onSelect });
-      } else {
-        navigateInto(key, subtree, item.label);
-      }
+      navigateInto(key, subtree, label);
     }).catch((err: unknown) => {
       props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });
     });
+  }
+
+  function handleSelectActivation(key: string, item: SelectItem) {
+    const buildOptionNode = (options: string[]): DirectoryNode => {
+      const node: DirectoryNode = {};
+      for (const opt of options) {
+        node[opt] = {
+          type: 'action',
+          label: opt,
+          action: () => { item.onSelect(opt); },
+        };
+      }
+      return node;
+    };
+
+    if (item.options) {
+      const returnHistoryLength = history().length;
+      navigateInto(key, buildOptionNode(item.options), item.label);
+      setEphemeralCtx({ returnHistoryLength });
+    } else if (item.load) {
+      let cancelled = false;
+      props.set('palette', 'overlay', { type: 'loading', label: item.label, cancel: () => { cancelled = true; } });
+      item.load().then((options: string[]) => {
+        if (cancelled) return;
+        props.set('palette', 'overlay', null);
+        const returnHistoryLength = history().length;
+        navigateInto(key, buildOptionNode(options), item.label);
+        setEphemeralCtx({ returnHistoryLength });
+      }).catch((err: unknown) => {
+        props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });
+      });
+    }
   }
 
   // ── Keyboard handler (direct addEventListener — bypasses SolidJS delegation) ─
@@ -548,7 +579,7 @@ export default function DirView(props: DirViewProps) {
                         <span style={{ color: 'var(--rove-accent)', 'font-size': '13px' }}>✓</span>
                       </Show>
                       {/* Arrow indicator for navigable items */}
-                      <Show when={entry.item.type === 'directory' || entry.item.type === 'virtual' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select-multiple'}>
+                      <Show when={entry.item.type === 'directory' || entry.item.type === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select-multiple'}>
                         <span style={{ color: 'var(--rove-text-dim)' }}>→</span>
                       </Show>
                     </div>

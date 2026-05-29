@@ -1,6 +1,7 @@
 import { createSignal, onCleanup, onMount, Show, Switch, Match } from 'solid-js';
 import type { InputItem, OverlayState } from '../types';
 
+
 interface ModalSheetProps {
   overlay: OverlayState;
   keyPrefix: string;
@@ -98,7 +99,7 @@ export default function ModalSheet(props: ModalSheetProps) {
         </Match>
         <Match when={props.overlay.type === 'loading'}>
           <div class="modal-loading">
-            <span>Loading…</span>
+            <span>Loading {(props.overlay as { type: 'loading'; label: string; cancel: () => void }).label}…</span>
             <button onClick={props.onCancel}>Dismiss</button>
           </div>
         </Match>

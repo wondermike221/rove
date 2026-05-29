@@ -112,14 +112,13 @@ const nav = init({
     },
 
     docs: {
-      type: 'virtual',
-      label: 'Load Documentation (persistent)',
-      mode: 'persistent',
+      type: 'directory',
+      label: 'Load Documentation',
       load: () =>
         new Promise((resolve) => {
-          log('Loading docs… (persistent — items added to search index)');
+          log('Loading docs… (lazy directory — loads once, cached thereafter)');
           setTimeout(() => {
-            log('Docs loaded! Search for "Getting Started", "API Reference", or "Examples"');
+            log('Docs loaded! Results shown immediately.');
             resolve({
               'getting-started': {
                 type: 'action',
@@ -142,23 +141,17 @@ const nav = init({
     },
 
     'assign-user': {
-      type: 'virtual',
-      label: 'Assign User (ephemeral)',
-      mode: 'ephemeral',
+      type: 'select',
+      label: 'Assign User',
       load: () =>
         new Promise((resolve) => {
-          log('Fetching users… (ephemeral — pick one and done)');
+          log('Fetching users… (select — pick one and done)');
           setTimeout(() => {
             log('Users loaded!');
-            resolve({
-              alice: { type: 'action', label: 'Alice', action: () => {} },
-              bob:   { type: 'action', label: 'Bob',   action: () => {} },
-              carol: { type: 'action', label: 'Carol', action: () => {} },
-              dave:  { type: 'action', label: 'Dave',  action: () => {} },
-            });
+            resolve(['Alice', 'Bob', 'Carol', 'Dave']);
           }, 800);
         }),
-      onSelect: (key) => log(`Assigned to: ${key}`),
+      onSelect: (value) => log(`Assigned to: ${value}`),
     },
 
     github: {

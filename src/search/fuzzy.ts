@@ -11,7 +11,17 @@ function traverseNode(
   items: SearchResult[],
 ): void {
   for (const [key, item] of Object.entries(node)) {
-    if (item.type === 'directory') {
+    if (item.type === 'directory' && item.children && !item.load) {
+      // Static directory: traverse children, don't add the dir itself to index
+      traverseNode(
+        item.children,
+        [...path, key],
+        [...pathLabels, item.label],
+        haystack,
+        items,
+      );
+    } else if (item.type === 'directory' && item.load && item.children) {
+      // Lazy directory already loaded: traverse children like a static dir
       traverseNode(
         item.children,
         [...path, key],
@@ -20,7 +30,10 @@ function traverseNode(
         items,
       );
     } else {
-      const contextStr = pathLabels.length > 0 ? `${pathLabels.join(' > ')} > ${item.label}` : item.label;
+      // Leaf items: action, input, select, and unloaded lazy directory.
+      // Unloaded lazy dirs appear in the index so users can find and trigger them.
+      const label = 'label' in item ? item.label : key;
+      const contextStr = pathLabels.length > 0 ? `${pathLabels.join(' > ')} > ${label}` : label;
       haystack.push(contextStr);
       items.push({
         item,
@@ -49,11 +62,6 @@ export function search(index: SearchIndex, query: string): SearchResult[] {
 
   return order.map((pos) => {
     const idx = idxs[pos];
-    const ranges = uFuzzy.highlight(
-      index.haystack[idx],
-      info.ranges[pos],
-      (m) => m,
-    );
     const result = index.items[idx];
 
     const rawRanges = info.ranges[pos] as number[];

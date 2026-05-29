@@ -10,9 +10,15 @@ import { clear } from './storage/persist';
 // ─── Validation ────────────────────────────────────────────────────────────
 
 function validateNode(key: string, item: DirectoryItem): void {
-  const validTypes = ['directory', 'action', 'input', 'virtual'];
+  const validTypes = ['directory', 'action', 'input', 'select'];
   if (!validTypes.includes(item.type)) {
     throw new Error(`Rove: Invalid node type '${item.type}' on node '${key}'.`);
+  }
+
+  if (item.type === 'select') {
+    if (!item.options && !item.load) {
+      throw new Error(`Rove: SelectItem '${key}' requires either 'options' or 'load'.`);
+    }
   }
 
   if (item.type === 'input') {
@@ -48,7 +54,10 @@ function validateNode(key: string, item: DirectoryItem): void {
   }
 
   if (item.type === 'directory') {
-    validateTree(item.children);
+    if (!item.children && !item.load) {
+      throw new Error(`Rove: DirectoryNodeItem '${key}' requires either 'children' or 'load'.`);
+    }
+    if (item.children) validateTree(item.children);
   }
 }
 
@@ -188,7 +197,7 @@ export type {
   ActionItem,
   InputItem,
   InputType,
-  VirtualItem,
+  SelectItem,
 } from './types';
 
 // ─── Userscript global ─────────────────────────────────────────────────────
