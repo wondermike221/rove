@@ -162,6 +162,49 @@ const nav = init({
         window.open('https://github.com', '_blank');
       },
     },
+
+    // ── Pagination test items (need >9 at same level for page 2) ────────────
+    // Root now has 10 items → 2 pages. Key 9 on page 1 = next, key 1 on page 2 = prev.
+
+    reports: {
+      type: 'action',
+      label: 'View Reports',
+      action: () => log('Viewing reports'),
+    },
+
+    invite: {
+      type: 'action',
+      label: 'Invite User',
+      action: () => log('Invite sent'),
+    },
+
+    logout: {
+      type: 'action',
+      label: 'Log Out',
+      action: () => log('Logged out'),
+    },
+
+    help: {
+      type: 'action',
+      label: 'Help',
+      action: () => log('Opening help'),
+    },
+
+    // Sub-directory with 20 items → 3 pages of pagination
+    'big-menu': {
+      type: 'directory',
+      label: 'Pagination Test (20 items)',
+      children: Object.fromEntries(
+        Array.from({ length: 20 }, (_, i) => [
+          `item-${i + 1}`,
+          {
+            type: 'action' as const,
+            label: `Item ${i + 1}`,
+            action: () => log(`Selected: Item ${i + 1}`),
+          },
+        ])
+      ),
+    },
   },
 });
 
