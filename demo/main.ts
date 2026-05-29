@@ -208,28 +208,228 @@ const nav = init({
   },
 });
 
-// ─── Instance 2 — minimal, isolated ─────────────────────────────────────────
+// ─── Instance 2 — feature showcase ──────────────────────────────────────────
 
 const nav2 = init({
   keyPrefix: 'demo2',
   defaults: {
-    mode: 'palette',
+    mode: 'dir',
     globalShortcut: 'Ctrl+Shift+K',
     modeSwapShortcut: 'Ctrl+Shift+M',
     theme: 'system',
   },
   tree: {
-    ping: {
-      type: 'action',
-      label: 'Ping (Instance 2)',
-      action: () => log('[Instance 2] Pong!'),
+
+    // ── Actions ─────────────────────────────────────────────────────────────
+    actions: {
+      type: 'directory',
+      label: 'Actions',
+      children: {
+        simple: {
+          type: 'action',
+          label: 'Simple Action',
+          action: () => log('[2] Action fired'),
+        },
+        counted: {
+          type: 'action',
+          label: 'Counted Action (click multiple times)',
+          action: (() => {
+            let n = 0;
+            return () => log(`[2] Count: ${++n}`);
+          })(),
+        },
+      },
     },
-    message: {
-      type: 'input',
-      label: 'Send Message (Instance 2)',
-      inputType: 'text',
-      onChange: (v) => log(`[Instance 2] Message: "${v}"`),
+
+    // ── Text inputs (text + textarea together — both are inline edit) ────────
+    'text-inputs': {
+      type: 'directory',
+      label: 'Text Inputs',
+      children: {
+        'single-line': {
+          type: 'input',
+          label: 'Single Line',
+          inputType: 'text',
+          defaultValue: 'hello',
+          onChange: (v) => log(`[2] single-line: "${v}"`),
+        },
+        'multi-line': {
+          type: 'input',
+          label: 'Multi Line',
+          inputType: 'textarea',
+          defaultValue: 'line one\nline two',
+          onChange: (v) => log(`[2] multi-line saved (${String(v).length} chars)`),
+        },
+      },
     },
+
+    // ── Checkbox (immediate toggle, no modal) ────────────────────────────────
+    toggles: {
+      type: 'directory',
+      label: 'Toggles (Checkbox)',
+      children: {
+        'feature-flag': {
+          type: 'input',
+          label: 'Feature Flag',
+          inputType: 'checkbox',
+          defaultValue: false,
+          onChange: (v) => log(`[2] feature-flag: ${v}`),
+        },
+        'verbose-mode': {
+          type: 'input',
+          label: 'Verbose Mode',
+          inputType: 'checkbox',
+          defaultValue: true,
+          onChange: (v) => log(`[2] verbose: ${v}`),
+        },
+      },
+    },
+
+    // ── Selections — input/select, input/select-multiple, and type:select ────
+    selections: {
+      type: 'directory',
+      label: 'Selections',
+      children: {
+        'input-select': {
+          type: 'input',
+          label: 'Input Select (persisted)',
+          inputType: 'select',
+          options: ['Red', 'Green', 'Blue', 'Yellow'],
+          defaultValue: 'Blue',
+          onChange: (v) => log(`[2] color: ${v}`),
+        },
+        'input-multiselect': {
+          type: 'input',
+          label: 'Input Multi-Select (persisted)',
+          inputType: 'select-multiple',
+          options: ['TypeScript', 'SolidJS', 'Vite', 'TailwindCSS', 'Vitest'],
+          onChange: (v) => log(`[2] stack: ${(v as string[]).join(', ')}`),
+        },
+        'select-static': {
+          type: 'select',
+          label: 'Select (static, not persisted)',
+          options: ['Option A', 'Option B', 'Option C'],
+          onSelect: (v) => log(`[2] picked: ${v}`),
+        },
+        'select-async': {
+          type: 'select',
+          label: 'Select (async load)',
+          load: () => new Promise<string[]>((resolve) => {
+            log('[2] loading options…');
+            setTimeout(() => resolve(['Alice', 'Bob', 'Carol', 'Dave', 'Eve']), 800);
+          }),
+          onSelect: (v) => log(`[2] assigned: ${v}`),
+        },
+      },
+    },
+
+    // ── Directory types — static vs lazy (loads once, cached) ───────────────
+    directories: {
+      type: 'directory',
+      label: 'Directories',
+      children: {
+        static: {
+          type: 'directory',
+          label: 'Static Directory',
+          children: {
+            a: { type: 'action', label: 'Child A', action: () => log('[2] Child A') },
+            b: { type: 'action', label: 'Child B', action: () => log('[2] Child B') },
+            c: { type: 'action', label: 'Child C', action: () => log('[2] Child C') },
+          },
+        },
+        lazy: {
+          type: 'directory',
+          label: 'Lazy Directory (loads once)',
+          load: () => new Promise((resolve) => {
+            log('[2] lazy dir loading…');
+            setTimeout(() => {
+              log('[2] lazy dir loaded and cached');
+              resolve({
+                x: { type: 'action', label: 'Loaded X', action: () => log('[2] Loaded X') },
+                y: { type: 'action', label: 'Loaded Y', action: () => log('[2] Loaded Y') },
+                z: { type: 'action', label: 'Loaded Z', action: () => log('[2] Loaded Z') },
+              });
+            }, 1200);
+          }),
+        },
+      },
+    },
+
+    // ── Pagination — 15 items → 2 pages ─────────────────────────────────────
+    pagination: {
+      type: 'directory',
+      label: 'Pagination (15 items, 2 pages)',
+      children: Object.fromEntries(
+        Array.from({ length: 15 }, (_, i) => [
+          `item-${i + 1}`,
+          { type: 'action' as const, label: `Item ${i + 1}`, action: () => log(`[2] Item ${i + 1}`) },
+        ])
+      ),
+    },
+
+    // ── Combinations — features that interact ────────────────────────────────
+    combinations: {
+      type: 'directory',
+      label: 'Combinations',
+      children: {
+        // Lazy dir that resolves to 12 items → tests lazy + pagination together
+        'lazy-paginated': {
+          type: 'directory',
+          label: 'Lazy + Pagination (12 items on load)',
+          load: () => new Promise((resolve) => {
+            log('[2] lazy+paginated loading…');
+            setTimeout(() => {
+              log('[2] loaded 12 items — should paginate');
+              resolve(Object.fromEntries(
+                Array.from({ length: 12 }, (_, i) => [
+                  `loaded-${i + 1}`,
+                  { type: 'action' as const, label: `Loaded ${i + 1}`, action: () => log(`[2] Loaded ${i + 1}`) },
+                ])
+              ));
+            }, 1000);
+          }),
+        },
+        // 3 levels deep → tests breadcrumb nav and back navigation
+        nested: {
+          type: 'directory',
+          label: 'Nested (3 levels deep)',
+          children: {
+            level2: {
+              type: 'directory',
+              label: 'Level 2',
+              children: {
+                level3: {
+                  type: 'directory',
+                  label: 'Level 3',
+                  children: {
+                    leaf: { type: 'action', label: 'Deep Leaf', action: () => log('[2] reached the bottom') },
+                  },
+                },
+              },
+            },
+          },
+        },
+        // All input types mixed in one directory
+        mixed: {
+          type: 'directory',
+          label: 'Mixed Types',
+          children: {
+            act: { type: 'action', label: 'Action', action: () => log('[2] mixed action') },
+            txt: { type: 'input', label: 'Text Input', inputType: 'text', onChange: (v) => log(`[2] mixed text: ${v}`) },
+            chk: { type: 'input', label: 'Checkbox', inputType: 'checkbox', defaultValue: false, onChange: (v) => log(`[2] mixed checkbox: ${v}`) },
+            sel: { type: 'select', label: 'Select', options: ['X', 'Y', 'Z'], onSelect: (v) => log(`[2] mixed select: ${v}`) },
+            dir: {
+              type: 'directory',
+              label: 'Sub Directory',
+              children: {
+                child: { type: 'action', label: 'Sub Child', action: () => log('[2] mixed sub-child') },
+              },
+            },
+          },
+        },
+      },
+    },
+
   },
 });
 
