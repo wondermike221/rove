@@ -143,11 +143,43 @@ export default function DirView(props: DirViewProps) {
 
   // ── Item list memos ──────────────────────────────────────────────────────
 
+  type DisplayEntry =
+    | { kind: 'item'; key: string; item: DirectoryItem }
+    | { kind: 'prev' }
+    | { kind: 'next' };
+
   const currentItems = createMemo(() => Object.entries(currentNode()).map(([key, item]) => ({ key, item })));
-  const totalPages = createMemo(() => Math.max(1, Math.ceil(currentItems().length / ITEMS_PER_PAGE)));
-  const pageItems = createMemo(() => {
-    const start = (props.state.nav.page - 1) * ITEMS_PER_PAGE;
-    return currentItems().slice(start, start + ITEMS_PER_PAGE);
+
+  // Page 1 holds 8 real items (slot 9 = next), middle pages hold 7, last page holds up to 8.
+  // Single-page dirs (≤9 items) use all 9 slots with no meta items.
+  const totalPages = createMemo(() => {
+    const n = currentItems().length;
+    if (n <= ITEMS_PER_PAGE) return 1;
+    return 1 + Math.ceil((n - (ITEMS_PER_PAGE - 1)) / (ITEMS_PER_PAGE - 2));
+  });
+
+  const displayItems = createMemo<DisplayEntry[]>(() => {
+    const all = currentItems();
+    const total = totalPages();
+    const page = props.state.nav.page;
+
+    if (total === 1) {
+      return all.map(e => ({ kind: 'item' as const, key: e.key, item: e.item }));
+    }
+
+    const hasPrev = page > 1;
+    const hasNext = page < total;
+    const capacity = ITEMS_PER_PAGE - (hasPrev ? 1 : 0) - (hasNext ? 1 : 0);
+    // Start offset: page 1 consumed (ITEMS_PER_PAGE - 1) = 8 items; each subsequent page consumed capacity of that page.
+    const start = page === 1 ? 0 : (ITEMS_PER_PAGE - 1) + (page - 2) * (ITEMS_PER_PAGE - 2);
+
+    const result: DisplayEntry[] = [];
+    if (hasPrev) result.push({ kind: 'prev' });
+    for (const e of all.slice(start, start + capacity)) {
+      result.push({ kind: 'item', key: e.key, item: e.item });
+    }
+    if (hasNext) result.push({ kind: 'next' });
+    return result;
   });
 
   createEffect(() => {
@@ -355,13 +387,11 @@ export default function DirView(props: DirViewProps) {
     const num = numMatch ? parseInt(numMatch[1]) : NaN;
     if (!isNaN(num)) {
       e.preventDefault();
-      const page = props.state.nav.page;
-      const total = totalPages();
-      if (num === 1 && page > 1) { props.set('nav', 'page', page - 1); return; }
-      if (num === 9 && page < total) { props.set('nav', 'page', page + 1); return; }
-      const idx = num - 1;
-      const items = pageItems();
-      if (idx < items.length) activateItem(items[idx]);
+      const entry = displayItems()[num - 1];
+      if (!entry) return;
+      if (entry.kind === 'prev') { props.set('nav', 'page', props.state.nav.page - 1); }
+      else if (entry.kind === 'next') { props.set('nav', 'page', props.state.nav.page + 1); }
+      else { activateItem(entry); }
     }
   }
 
@@ -545,45 +575,83 @@ export default function DirView(props: DirViewProps) {
           <Match when={true}>
             <>
               <div role="listbox" class="dirview-items" style={{ flex: 1, 'overflow-y': 'auto', padding: '4px 0' }}>
-                <For each={pageItems()}>
-                  {(entry, i) => (
-                    <div
-                      class="dirview-item"
-                      role="option"
-                      aria-selected={false}
-                      onClick={() => activateItem(entry)}
-                      style={{
-                        display: 'flex', 'align-items': 'center', gap: '8px',
-                        padding: '6px 12px', cursor: 'pointer', color: 'var(--rove-text)',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--rove-hover)')}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = '')}
-                    >
-                      <span style={{ color: 'var(--rove-text-dim)', 'font-size': '11px', 'min-width': '14px' }}>
-                        {i() + 1}.
-                      </span>
-                      <span style={{ flex: 1 }}>
-                        {'label' in entry.item ? entry.item.label : entry.key}
-                      </span>
-                      {/* Current value display for input items */}
-                      <Show when={entry.item.type === 'input'}>
-                        <span style={{
-                          'font-size': '11px', color: 'var(--rove-text-dim)',
-                          'max-width': '80px', overflow: 'hidden', 'text-overflow': 'ellipsis', 'white-space': 'nowrap',
-                        }}>
-                          {getDisplayValue(entry.key, entry.item as InputItem)}
+                <For each={displayItems()}>
+                  {(entry, i) => {
+                    // Meta: previous page
+                    if (entry.kind === 'prev') return (
+                      <div
+                        role="option"
+                        aria-label="Previous page"
+                        onClick={() => props.set('nav', 'page', props.state.nav.page - 1)}
+                        style={{
+                          display: 'flex', 'align-items': 'center', gap: '8px',
+                          padding: '6px 12px', cursor: 'pointer', color: 'var(--rove-text-dim)',
+                          'font-size': '12px',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--rove-hover)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = '')}
+                      >
+                        <span style={{ 'font-size': '11px', 'min-width': '14px' }}>{i() + 1}.</span>
+                        <span>← Previous page</span>
+                      </div>
+                    );
+
+                    // Meta: next page
+                    if (entry.kind === 'next') return (
+                      <div
+                        role="option"
+                        aria-label="Next page"
+                        onClick={() => props.set('nav', 'page', props.state.nav.page + 1)}
+                        style={{
+                          display: 'flex', 'align-items': 'center', gap: '8px',
+                          padding: '6px 12px', cursor: 'pointer', color: 'var(--rove-text-dim)',
+                          'font-size': '12px',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--rove-hover)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = '')}
+                      >
+                        <span style={{ 'font-size': '11px', 'min-width': '14px' }}>{i() + 1}.</span>
+                        <span>Next page →</span>
+                      </div>
+                    );
+
+                    // Normal item
+                    return (
+                      <div
+                        class="dirview-item"
+                        role="option"
+                        aria-selected={false}
+                        onClick={() => activateItem(entry)}
+                        style={{
+                          display: 'flex', 'align-items': 'center', gap: '8px',
+                          padding: '6px 12px', cursor: 'pointer', color: 'var(--rove-text)',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--rove-hover)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = '')}
+                      >
+                        <span style={{ color: 'var(--rove-text-dim)', 'font-size': '11px', 'min-width': '14px' }}>
+                          {i() + 1}.
                         </span>
-                      </Show>
-                      {/* Checkmark for currently-selected option in select mode */}
-                      <Show when={ephemeralCtx()?.selectedKey === entry.key}>
-                        <span style={{ color: 'var(--rove-accent)', 'font-size': '13px' }}>✓</span>
-                      </Show>
-                      {/* Arrow indicator for navigable items */}
-                      <Show when={entry.item.type === 'directory' || entry.item.type === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select-multiple'}>
-                        <span style={{ color: 'var(--rove-text-dim)' }}>→</span>
-                      </Show>
-                    </div>
-                  )}
+                        <span style={{ flex: 1 }}>
+                          {'label' in entry.item ? entry.item.label : entry.key}
+                        </span>
+                        <Show when={entry.item.type === 'input'}>
+                          <span style={{
+                            'font-size': '11px', color: 'var(--rove-text-dim)',
+                            'max-width': '80px', overflow: 'hidden', 'text-overflow': 'ellipsis', 'white-space': 'nowrap',
+                          }}>
+                            {getDisplayValue(entry.key, entry.item as InputItem)}
+                          </span>
+                        </Show>
+                        <Show when={ephemeralCtx()?.selectedKey === entry.key}>
+                          <span style={{ color: 'var(--rove-accent)', 'font-size': '13px' }}>✓</span>
+                        </Show>
+                        <Show when={entry.item.type === 'directory' || entry.item.type === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select' || entry.item.type === 'input' && (entry.item as InputItem).inputType === 'select-multiple'}>
+                          <span style={{ color: 'var(--rove-text-dim)' }}>→</span>
+                        </Show>
+                      </div>
+                    );
+                  }}
                 </For>
               </div>
 
