@@ -1,0 +1,427 @@
+{
+  "C:\\Users\\mhixon\\repos\\Rove\\.graphify_detect.json": {
+    "mtime": 1780009236.729781,
+    "ast_hash": "687d7cf59db6787a7cb360a6fff2ff17",
+    "semantic_hash": "687d7cf59db6787a7cb360a6fff2ff17"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\package.json": {
+    "mtime": 1778728677.8647516,
+    "ast_hash": "e73b9905bf4883af2904719f7a948f33",
+    "semantic_hash": "e73b9905bf4883af2904719f7a948f33"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\tsconfig.json": {
+    "mtime": 1778704069.537307,
+    "ast_hash": "f29bd9e11cc63813242e2ef7074244a7",
+    "semantic_hash": "f29bd9e11cc63813242e2ef7074244a7"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\vite.config.ts": {
+    "mtime": 1778727079.4800172,
+    "ast_hash": "0efe78c3945598cd886c407f6e3e6566",
+    "semantic_hash": "0efe78c3945598cd886c407f6e3e6566"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\vite.demo.config.ts": {
+    "mtime": 1778728668.5237136,
+    "ast_hash": "3490f60d2c642071cbe6d95f975f6be9",
+    "semantic_hash": "3490f60d2c642071cbe6d95f975f6be9"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\vite.userscript.config.ts": {
+    "mtime": 1778725410.835671,
+    "ast_hash": "0e45c0eef980b54a36c77a98c80f0a41",
+    "semantic_hash": "0e45c0eef980b54a36c77a98c80f0a41"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\settings.local.json": {
+    "mtime": 1778725404.2576187,
+    "ast_hash": "e103c9167f50791f0ded30d073266b54",
+    "semantic_hash": "e103c9167f50791f0ded30d073266b54"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\feature.json": {
+    "mtime": 1778719518.991864,
+    "ast_hash": "327d9de409ccc20a9ca2e9694886ac0a",
+    "semantic_hash": "327d9de409ccc20a9ca2e9694886ac0a"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\init-options.json": {
+    "mtime": 1778710950.368781,
+    "ast_hash": "576542eb96de3fcbc1a6b38e0b3bb236",
+    "semantic_hash": "576542eb96de3fcbc1a6b38e0b3bb236"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\integration.json": {
+    "mtime": 1778710949.8072867,
+    "ast_hash": "6c2b020afef0ec779d3aa7dda83ebec3",
+    "semantic_hash": "6c2b020afef0ec779d3aa7dda83ebec3"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\bash\\auto-commit.sh": {
+    "mtime": 1778710878.1645994,
+    "ast_hash": "d2eff3439669e2f21825e2727eab3e6e",
+    "semantic_hash": "d2eff3439669e2f21825e2727eab3e6e"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\bash\\create-new-feature.sh": {
+    "mtime": 1778710878.171327,
+    "ast_hash": "5236f607b9bcc2346e99714c06592817",
+    "semantic_hash": "5236f607b9bcc2346e99714c06592817"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\bash\\git-common.sh": {
+    "mtime": 1778710878.176753,
+    "ast_hash": "ccbcc8f94d52d18a50f892b96fd2d9f0",
+    "semantic_hash": "ccbcc8f94d52d18a50f892b96fd2d9f0"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\bash\\initialize-repo.sh": {
+    "mtime": 1778710878.1860292,
+    "ast_hash": "74e6c1d493a031b83243ce71777f27ae",
+    "semantic_hash": "74e6c1d493a031b83243ce71777f27ae"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\powershell\\auto-commit.ps1": {
+    "mtime": 1778710878.1920388,
+    "ast_hash": "31455f1c85510ff2f9904b5da9a5fbc2",
+    "semantic_hash": "31455f1c85510ff2f9904b5da9a5fbc2"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\powershell\\create-new-feature.ps1": {
+    "mtime": 1778710878.193039,
+    "ast_hash": "126d44abaf3f455c3a46287150ffcec7",
+    "semantic_hash": "126d44abaf3f455c3a46287150ffcec7"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\powershell\\git-common.ps1": {
+    "mtime": 1778710878.1920388,
+    "ast_hash": "6850abf378460b0b31ad2b9e7ca60266",
+    "semantic_hash": "6850abf378460b0b31ad2b9e7ca60266"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\scripts\\powershell\\initialize-repo.ps1": {
+    "mtime": 1778710878.160732,
+    "ast_hash": "6668e63007465e34f6d684dd2ef45718",
+    "semantic_hash": "6668e63007465e34f6d684dd2ef45718"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\integrations\\claude.manifest.json": {
+    "mtime": 1778710949.8032804,
+    "ast_hash": "c20d52e2623040edcbbf0c3e41c09b8a",
+    "semantic_hash": "c20d52e2623040edcbbf0c3e41c09b8a"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\integrations\\speckit.manifest.json": {
+    "mtime": 1778710949.8945584,
+    "ast_hash": "9693eec39301c0c2a8720b9b981be48a",
+    "semantic_hash": "9693eec39301c0c2a8720b9b981be48a"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\scripts\\powershell\\check-prerequisites.ps1": {
+    "mtime": 1778710949.8355207,
+    "ast_hash": "6f75f7b2e36c0a11edc67edb55fc5700",
+    "semantic_hash": "6f75f7b2e36c0a11edc67edb55fc5700"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\scripts\\powershell\\common.ps1": {
+    "mtime": 1778710949.8425283,
+    "ast_hash": "96d3a48ab29ffe5877b470301593b076",
+    "semantic_hash": "96d3a48ab29ffe5877b470301593b076"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\scripts\\powershell\\create-new-feature.ps1": {
+    "mtime": 1778710949.8515291,
+    "ast_hash": "9744eb0271b620a37a58dbdaf910c6d2",
+    "semantic_hash": "9744eb0271b620a37a58dbdaf910c6d2"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\scripts\\powershell\\setup-plan.ps1": {
+    "mtime": 1778710949.8580184,
+    "ast_hash": "efd80f184fef739b739511f875388542",
+    "semantic_hash": "efd80f184fef739b739511f875388542"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\scripts\\powershell\\setup-tasks.ps1": {
+    "mtime": 1778710949.8640177,
+    "ast_hash": "794ebf8a3185d9171db1b5a546d72dd6",
+    "semantic_hash": "794ebf8a3185d9171db1b5a546d72dd6"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\workflows\\workflow-registry.json": {
+    "mtime": 1778710950.3667781,
+    "ast_hash": "32e9d66199b680e5ba39ea1ad85c6e07",
+    "semantic_hash": "32e9d66199b680e5ba39ea1ad85c6e07"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\demo\\main.ts": {
+    "mtime": 1778777497.7770596,
+    "ast_hash": "7138dd3b61f47e51c8443b1bf1d57ed8",
+    "semantic_hash": "7138dd3b61f47e51c8443b1bf1d57ed8"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\debug.ts": {
+    "mtime": 1778777427.5361345,
+    "ast_hash": "ad5df6e620f924e76b77b1ab20842930",
+    "semantic_hash": "ad5df6e620f924e76b77b1ab20842930"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\index.ts": {
+    "mtime": 1779985981.8923872,
+    "ast_hash": "e34471c29d60dcfc618f952640d06aef",
+    "semantic_hash": "e34471c29d60dcfc618f952640d06aef"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\types.ts": {
+    "mtime": 1779227900.9331517,
+    "ast_hash": "bb211cf697af52ffdfac1d5322418fde",
+    "semantic_hash": "bb211cf697af52ffdfac1d5322418fde"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\Breadcrumbs.tsx": {
+    "mtime": 1778783599.8843596,
+    "ast_hash": "19fdd57c5953ea5cec564283a01361b0",
+    "semantic_hash": "19fdd57c5953ea5cec564283a01361b0"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\DirView.tsx": {
+    "mtime": 1779231870.0751536,
+    "ast_hash": "9ac9f78078f12fd78b7944c17041065e",
+    "semantic_hash": "9ac9f78078f12fd78b7944c17041065e"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\ModalSheet.tsx": {
+    "mtime": 1779207622.602979,
+    "ast_hash": "67d71c46205bdb830970eb8f051c6f74",
+    "semantic_hash": "67d71c46205bdb830970eb8f051c6f74"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\Palette.tsx": {
+    "mtime": 1779985044.8456428,
+    "ast_hash": "53d9c36475f929dc9a39b50c90f3a4d0",
+    "semantic_hash": "53d9c36475f929dc9a39b50c90f3a4d0"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\PaletteResult.tsx": {
+    "mtime": 1778726190.081474,
+    "ast_hash": "1e8e6c903fe19ba2d54d01470a5060c0",
+    "semantic_hash": "1e8e6c903fe19ba2d54d01470a5060c0"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\Root.tsx": {
+    "mtime": 1779229768.6570575,
+    "ast_hash": "b253e06bef46ab896a91238d727b0a51",
+    "semantic_hash": "b253e06bef46ab896a91238d727b0a51"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\components\\TitleBar.tsx": {
+    "mtime": 1779228328.8404822,
+    "ast_hash": "29eec6c0ae181a65a86dbfedd2e98584",
+    "semantic_hash": "29eec6c0ae181a65a86dbfedd2e98584"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\meta\\meta-tree.ts": {
+    "mtime": 1778777399.1715667,
+    "ast_hash": "f4005408ce5e57b2c8566037d4d39367",
+    "semantic_hash": "f4005408ce5e57b2c8566037d4d39367"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\search\\fuzzy.ts": {
+    "mtime": 1778725841.0996275,
+    "ast_hash": "e51d026592c3701e3aecea523d3cb57f",
+    "semantic_hash": "e51d026592c3701e3aecea523d3cb57f"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\shortcuts\\registry.ts": {
+    "mtime": 1778730242.8970146,
+    "ast_hash": "0b0c163b6b572723b67a6a9ef0f95e84",
+    "semantic_hash": "0b0c163b6b572723b67a6a9ef0f95e84"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\storage\\persist.ts": {
+    "mtime": 1778725839.0438063,
+    "ast_hash": "371d5872cb6eddf9d05804b453630f2e",
+    "semantic_hash": "371d5872cb6eddf9d05804b453630f2e"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\store\\app-state.ts": {
+    "mtime": 1779227975.9955516,
+    "ast_hash": "f0f9b9d7e88431d378aeb74997012b53",
+    "semantic_hash": "f0f9b9d7e88431d378aeb74997012b53"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\src\\store\\config.ts": {
+    "mtime": 1778777395.574556,
+    "ast_hash": "dc77485492aa9a68d6fd0451bbd0f4b1",
+    "semantic_hash": "dc77485492aa9a68d6fd0451bbd0f4b1"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\CLAUDE.md": {
+    "mtime": 1778720200.303108,
+    "ast_hash": "41154e4e7b6c1e64f2d7c531154b6261",
+    "semantic_hash": "41154e4e7b6c1e64f2d7c531154b6261"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-analyze\\SKILL.md": {
+    "mtime": 1778710949.776732,
+    "ast_hash": "b813211ba2db6ba528a445253fcd5133",
+    "semantic_hash": "b813211ba2db6ba528a445253fcd5133"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-checklist\\SKILL.md": {
+    "mtime": 1778710949.7797313,
+    "ast_hash": "bd7d699e9726e87abb0017e05eb4b316",
+    "semantic_hash": "bd7d699e9726e87abb0017e05eb4b316"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-clarify\\SKILL.md": {
+    "mtime": 1778710949.7832417,
+    "ast_hash": "97ed4f6457f935886451cbbf4cb94302",
+    "semantic_hash": "97ed4f6457f935886451cbbf4cb94302"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-constitution\\SKILL.md": {
+    "mtime": 1778710949.7857485,
+    "ast_hash": "c9a285e099a64fea9cd80a9b937dffae",
+    "semantic_hash": "c9a285e099a64fea9cd80a9b937dffae"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-git-commit\\SKILL.md": {
+    "mtime": 1778710950.2868376,
+    "ast_hash": "95b66baee44efd46cc77faf642a2f501",
+    "semantic_hash": "95b66baee44efd46cc77faf642a2f501"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-git-feature\\SKILL.md": {
+    "mtime": 1778710950.2760108,
+    "ast_hash": "e89f630be92d94f9e6bdc04a8bb3ea40",
+    "semantic_hash": "e89f630be92d94f9e6bdc04a8bb3ea40"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-git-initialize\\SKILL.md": {
+    "mtime": 1778710950.2838387,
+    "ast_hash": "9e6898dd2786e3cb967fc9c1a0da1c1f",
+    "semantic_hash": "9e6898dd2786e3cb967fc9c1a0da1c1f"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-git-remote\\SKILL.md": {
+    "mtime": 1778710950.28183,
+    "ast_hash": "5f95e1e6ecd9ca60230596fd18cbfe16",
+    "semantic_hash": "5f95e1e6ecd9ca60230596fd18cbfe16"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-git-validate\\SKILL.md": {
+    "mtime": 1778710950.2797928,
+    "ast_hash": "94fdc0fb29921c0ec0dd797dae1da586",
+    "semantic_hash": "94fdc0fb29921c0ec0dd797dae1da586"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-implement\\SKILL.md": {
+    "mtime": 1778710949.7887664,
+    "ast_hash": "9be014f4457179293ed0808bdb8be065",
+    "semantic_hash": "9be014f4457179293ed0808bdb8be065"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-plan\\SKILL.md": {
+    "mtime": 1778710949.7907686,
+    "ast_hash": "3e9dcd43d096981cbe67e697c48dc9bf",
+    "semantic_hash": "3e9dcd43d096981cbe67e697c48dc9bf"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-specify\\SKILL.md": {
+    "mtime": 1778710949.7937646,
+    "ast_hash": "90c28e297660c6227459ed5091a1c3be",
+    "semantic_hash": "90c28e297660c6227459ed5091a1c3be"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-tasks\\SKILL.md": {
+    "mtime": 1778710949.7977676,
+    "ast_hash": "0d1db591560fc91db8a2273c261de1c0",
+    "semantic_hash": "0d1db591560fc91db8a2273c261de1c0"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.claude\\skills\\speckit-taskstoissues\\SKILL.md": {
+    "mtime": 1778710949.7997658,
+    "ast_hash": "428b2cf65c35bf453862534f7c4ea8dd",
+    "semantic_hash": "428b2cf65c35bf453862534f7c4ea8dd"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.kiro\\specs\\dirnav-ui-component\\design.md": {
+    "mtime": 1755814126.8473113,
+    "ast_hash": "c37bfc4eecf38af35515cf55dce5458e",
+    "semantic_hash": "c37bfc4eecf38af35515cf55dce5458e"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.kiro\\specs\\dirnav-ui-component\\requirements.md": {
+    "mtime": 1755814126.8507516,
+    "ast_hash": "dd38d2d5c1d4ba64a949629ca8c3ec0a",
+    "semantic_hash": "dd38d2d5c1d4ba64a949629ca8c3ec0a"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.kiro\\specs\\dirnav-ui-component\\tasks.md": {
+    "mtime": 1755887357.0672712,
+    "ast_hash": "fdae4caf6a220fc8e3a6a6508cf97510",
+    "semantic_hash": "fdae4caf6a220fc8e3a6a6508cf97510"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions.yml": {
+    "mtime": 1778710950.2920485,
+    "ast_hash": "00732a6a8ce6db2e25fcb80eeb01214d",
+    "semantic_hash": "00732a6a8ce6db2e25fcb80eeb01214d"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\config-template.yml": {
+    "mtime": 1778710878.1592185,
+    "ast_hash": "2e959d8f99a1aa365700f91f006dde16",
+    "semantic_hash": "2e959d8f99a1aa365700f91f006dde16"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\extension.yml": {
+    "mtime": 1778710878.165971,
+    "ast_hash": "5d4eebdd419577a3773d375e890404f1",
+    "semantic_hash": "5d4eebdd419577a3773d375e890404f1"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\git-config.yml": {
+    "mtime": 1778710878.1743276,
+    "ast_hash": "2e959d8f99a1aa365700f91f006dde16",
+    "semantic_hash": "2e959d8f99a1aa365700f91f006dde16"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\README.md": {
+    "mtime": 1778710878.181526,
+    "ast_hash": "03c2460bdc0f0edd93a3a4f551c5bec0",
+    "semantic_hash": "03c2460bdc0f0edd93a3a4f551c5bec0"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\commands\\speckit.git.commit.md": {
+    "mtime": 1778710878.1617339,
+    "ast_hash": "072a42b77ae4fc61ee2541fbdb9f191b",
+    "semantic_hash": "072a42b77ae4fc61ee2541fbdb9f191b"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\commands\\speckit.git.feature.md": {
+    "mtime": 1778710878.1703284,
+    "ast_hash": "1bd5a1974afd675961220e03622cb182",
+    "semantic_hash": "1bd5a1974afd675961220e03622cb182"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\commands\\speckit.git.initialize.md": {
+    "mtime": 1778710878.1753268,
+    "ast_hash": "3b445c45690f63d74c072d2ad6b24d71",
+    "semantic_hash": "3b445c45690f63d74c072d2ad6b24d71"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\commands\\speckit.git.remote.md": {
+    "mtime": 1778710878.176753,
+    "ast_hash": "eeafceb7d40fa71cd35a39d62842d74e",
+    "semantic_hash": "eeafceb7d40fa71cd35a39d62842d74e"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\extensions\\git\\commands\\speckit.git.validate.md": {
+    "mtime": 1778710878.1542184,
+    "ast_hash": "4379082fcdc8ff26ae4228596e4b6f3f",
+    "semantic_hash": "4379082fcdc8ff26ae4228596e4b6f3f"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\memory\\constitution.md": {
+    "mtime": 1778710949.874526,
+    "ast_hash": "dcefb6b60e7cb3db2e966977b6f02f18",
+    "semantic_hash": "dcefb6b60e7cb3db2e966977b6f02f18"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\specs\\001-dirnav-ui-component\\data-model.md": {
+    "mtime": 1778722404.1719303,
+    "ast_hash": "b237def75a160c688ca627e38b270de8",
+    "semantic_hash": "b237def75a160c688ca627e38b270de8"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\specs\\001-dirnav-ui-component\\plan.md": {
+    "mtime": 1778722440.3888328,
+    "ast_hash": "22febe0e918a52bf429b99cc24123402",
+    "semantic_hash": "22febe0e918a52bf429b99cc24123402"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\specs\\001-dirnav-ui-component\\research.md": {
+    "mtime": 1778722403.1365216,
+    "ast_hash": "5ff82b655c8ea14ad5fff254310cd7dc",
+    "semantic_hash": "5ff82b655c8ea14ad5fff254310cd7dc"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\specs\\001-dirnav-ui-component\\spec.md": {
+    "mtime": 1778722401.0758915,
+    "ast_hash": "59a0b3f5a82cad47b1c46e032cb07a8e",
+    "semantic_hash": "59a0b3f5a82cad47b1c46e032cb07a8e"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\specs\\001-dirnav-ui-component\\tasks.md": {
+    "mtime": 1778727996.592789,
+    "ast_hash": "51047cae9308964bf26bb8c7d31e8e1c",
+    "semantic_hash": "51047cae9308964bf26bb8c7d31e8e1c"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\specs\\001-dirnav-ui-component\\contracts\\api.md": {
+    "mtime": 1778722434.1862319,
+    "ast_hash": "18d015282de0be7961faf1f59c91c21d",
+    "semantic_hash": "18d015282de0be7961faf1f59c91c21d"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\templates\\checklist-template.md": {
+    "mtime": 1778710949.8695283,
+    "ast_hash": "af4274efb13cbb2263029402deb14f6b",
+    "semantic_hash": "af4274efb13cbb2263029402deb14f6b"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\templates\\constitution-template.md": {
+    "mtime": 1778710949.874526,
+    "ast_hash": "dcefb6b60e7cb3db2e966977b6f02f18",
+    "semantic_hash": "dcefb6b60e7cb3db2e966977b6f02f18"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\templates\\plan-template.md": {
+    "mtime": 1778710949.8795266,
+    "ast_hash": "fea2e21a1d9cf3470186abc1dfb6e9fb",
+    "semantic_hash": "fea2e21a1d9cf3470186abc1dfb6e9fb"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\templates\\spec-template.md": {
+    "mtime": 1778710949.8855526,
+    "ast_hash": "45ac8538bc1220324c9f0d610145b53f",
+    "semantic_hash": "45ac8538bc1220324c9f0d610145b53f"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\templates\\tasks-template.md": {
+    "mtime": 1778710949.8895576,
+    "ast_hash": "f8b4f62d384defa0a559bdbbaacb0540",
+    "semantic_hash": "f8b4f62d384defa0a559bdbbaacb0540"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\.specify\\workflows\\speckit\\workflow.yml": {
+    "mtime": 1778710878.1827767,
+    "ast_hash": "f2ac035c7d23d79221c84e745d4a9380",
+    "semantic_hash": "f2ac035c7d23d79221c84e745d4a9380"
+  },
+  "C:\\Users\\mhixon\\repos\\Rove\\demo\\index.html": {
+    "mtime": 1778777508.129536,
+    "ast_hash": "e305d571d5e4046cf48576ba92669524",
+    "semantic_hash": "e305d571d5e4046cf48576ba92669524"
+  }
+}

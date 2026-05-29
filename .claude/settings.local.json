@@ -7,10 +7,16 @@
       "Bash(mkdir -p \"c:/Users/mhixon/repos/DirNav/.specify/specs/001-dirnav-ui-component\")",
       "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/setup-tasks.ps1\" -Json)",
       "Bash(powershell -ExecutionPolicy Bypass -File \".specify/extensions/git/scripts/powershell/auto-commit.ps1\" after_tasks)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(ls -1 \"C:/Users/mhixon/repos/userscripts\")",
+      "Read(//c/Users/mhixon/repos/userscripts/**)",
+      "Bash(powershell -ExecutionPolicy Bypass -File .specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(mkdir -p src/store src/components src/meta src/search src/storage src/shortcuts)",
+      "Bash(npm install *)"
     ],
     "additionalDirectories": [
-      "c:\\Users\\mhixon\\repos\\DirNav\\.specify\\specs"
+      "c:\\Users\\mhixon\\repos\\DirNav\\.specify\\specs",
+      "C:\\Users\\mhixon\\repos\\Rove\\src"
     ]
   }
 }
