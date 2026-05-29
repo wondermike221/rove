@@ -150,11 +150,10 @@ export default function Palette(props: PaletteProps) {
         } else {
           const newIndex = appendToIndex(props.getIndex(), subtree, result.path, result.pathLabels);
           props.setIndex(newIndex);
-          const query = props.state.palette.query;
-          if (query) {
-            const newResults = search(newIndex, query);
-            props.set('palette', (p) => ({ ...p, results: newResults }));
-          }
+          // Clear query so filter effect re-runs against the expanded index.
+          // Index is not reactive so we can't rely on the existing effect.
+          props.set('palette', (p) => ({ ...p, query: '', results: [], selectedIndex: 0 }));
+          requestAnimationFrame(() => inputRef?.focus());
         }
       }).catch((err: unknown) => {
         props.set('palette', 'overlay', { type: 'error', message: err instanceof Error ? err.message : 'Load failed.' });

@@ -113,12 +113,13 @@ const nav = init({
 
     docs: {
       type: 'virtual',
-      label: 'Load Documentation',
+      label: 'Load Documentation (persistent)',
+      mode: 'persistent',
       load: () =>
         new Promise((resolve) => {
-          log('Loading docs…');
+          log('Loading docs… (persistent — items added to search index)');
           setTimeout(() => {
-            log('Docs loaded!');
+            log('Docs loaded! Search for "Getting Started", "API Reference", or "Examples"');
             resolve({
               'getting-started': {
                 type: 'action',
@@ -138,6 +139,26 @@ const nav = init({
             });
           }, 1500);
         }),
+    },
+
+    'assign-user': {
+      type: 'virtual',
+      label: 'Assign User (ephemeral)',
+      mode: 'ephemeral',
+      load: () =>
+        new Promise((resolve) => {
+          log('Fetching users… (ephemeral — pick one and done)');
+          setTimeout(() => {
+            log('Users loaded!');
+            resolve({
+              alice: { type: 'action', label: 'Alice', action: () => {} },
+              bob:   { type: 'action', label: 'Bob',   action: () => {} },
+              carol: { type: 'action', label: 'Carol', action: () => {} },
+              dave:  { type: 'action', label: 'Dave',  action: () => {} },
+            });
+          }, 800);
+        }),
+      onSelect: (key) => log(`Assigned to: ${key}`),
     },
 
     github: {
